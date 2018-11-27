@@ -45,45 +45,7 @@ serverSocket.on('connection', (clientSocket) => {
         .on('update', (command) => {
             serverSocket.emit('command', command);
         })
-        .on('animation', (command) => {
+        .on('animate', (command) => {
             serverSocket.emit('exec', command);
-        })
-        .on('unicast', (command) => {
-            serverSocket.emit('single', command);
-        })
-        .on('fftArray', (command) => {
-            serverSocket.emit('fft', command);
-        })
-        .on('stop', () => {
-            serverSocket.emit('freeze');
-        })
-        .on('auto_pilot', () => {
-            serverSocket.emit('the_beast');
-        })
-        .on('myo', (action) => {
-            serverSocket.emit('magic', action);
-        })
-        .on('quaternion', (quaternion) => {
-            serverSocket.emit('orientation', quaternion);
-        })
-        .on('double_tap', (action) => {
-            serverSocket.emit('pose');
-        })
-        .on('play', (game) => {
-            serverSocket.emit('game', game);
-        })
-        .on('keyboard', (key) => {
-            serverSocket.emit('keypress', key);
-        })
-        .on('ackHealth', (data) => {
-            lastHealthStatus = data;
-            serverSocket.emit('ackHealth_ui', lastHealthStatus);
-        })
-        .on('pilotstatus', (msg) => {
-            serverSocket.emit('statuspilot', msg);
-        })
-        .on('lidarStatus', (data) => {
-            lastLidarStatus = data;
-            serverSocket.emit('lidarStatus_ui', lastLidarStatus);
         });
 });

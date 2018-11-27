@@ -17,58 +17,341 @@ var createFolder = function(name, prop, items, custom) {
     }
 };
 
-var StopAllButton = function() {
-    this.STOP_ALL = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL STOP THE CURRENT ANIMATION(S)')) {
-            socket.emit('stop');
-        }
+var MotorA1 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "1_PASSO"});
     };
-    this.STOP_ALL.dangerous = true;
-};
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "SET_MIN"});
+    }
+}
 
-var AdminCommands = function() {
-    this.DISABLE____0xFF = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL DISABLE ALL MOTORS')) {
-            socket.emit('animation', 0xFF);
-        }
+var MotorA2 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "1_PASSO"});
     };
-    this.CALIBRATE____0xFE = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL RECALIBRATE ALL THE MOTORS TO ZERO')) {
-            socket.emit('animation', 0xFE);
-        }
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "-1_PASSO"});
     };
-    this.RESET____0xFC = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL RESET ALL MOTORS')) {
-            socket.emit('animation', 0xFC);
-        }
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "5_PASSO"});
     };
-    this.SET_ZERO_TO_POS____0xFD = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL SET THE CURRENT ANGLE TO ACT AS ZERO')) {
-            socket.emit('animation', 0xFD);
-        }
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "-5_PASSO"});
     };
-    this.HALT____0xFB = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL (CAN\'T REMEMBER) ALL THE MOTORS')) {
-            socket.emit('animation', 0xFB);
-        }
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "SET_MIN"});
+    }
+}
+
+var MotorA3 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "1_PASSO"});
     };
-    this.RANDOM_POSITION = function() {
-        if (window.confirm('ARE YOU SURE???? \n\nTHIS WILL ROTATE ALL THE MOTORS TO A RANDOM POSITION')) {
-            socket.emit('animation', {
-                animation: 'RandomPosition'
-            });
-        }
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "SET_MIN"});
+    }
+}
+
+var MotorB1 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "SET_MIN"});
+    }
+}
+
+var MotorB2 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "SET_MIN"});
+    }
+}
+
+var MotorB3 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "SET_MIN"});
+    }
+}
+
+var MotorC1 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "SET_MIN"});
+    }
+}
+
+var MotorC2 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "SET_MIN"});
+    }
+}
+
+var MotorC3 = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "-5_PASSO"});
+    };
+    this.CLEAR_LIMITS = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "CLEAR_LIMITS"});
+    }
+    this.SET_MAX = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "SET_MAX"});
+    }
+    this.SET_MIN = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "SET_MIN"});
+    }
+}
+
+var AllMotors = function() {
+    this.GO_UP = function() {
+        socket.emit('animate', {"motor": "all_motors", "command": "1_PASSO"});
+    };
+    this.GO_DOWN = function() {
+        socket.emit('animate', {"motor": "all_motors", "command": "-1_PASSO"});
+    };
+    this.GO_UP_FASTER = function() {
+        socket.emit('animate', {"motor": "all_motors", "command": "5_PASSO"});
+    };
+    this.GO_DOWN_FASTER = function() {
+        socket.emit('animate', {"motor": "all_motors", "command": "-5_PASSO"});
     };
 }
 
-createFolder('Stop All', new StopAllButton(), ['STOP_ALL']);
-createFolder('Admin Commands', new AdminCommands(), [
-    'DISABLE____0xFF',
-    'CALIBRATE____0xFE',
-    'RESET____0xFC',
-    'SET_ZERO_TO_POS____0xFD',
-    'HALT____0xFB',
-    'RANDOM_POSITION'
+createFolder('Motor A1', new MotorA1(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor A2', new MotorA2(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor A3', new MotorA3(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor B1', new MotorB1(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor B2', new MotorB2(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor B3', new MotorB3(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor C1', new MotorC1(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor C2', new MotorC2(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('Motor C3', new MotorC3(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER',
+    'SET_MAX',
+    'SET_MIN',
+    'CLEAR_LIMITS'
+
+]);
+
+createFolder('All Motors', new AllMotors(), [
+    'GO_UP',
+    'GO_DOWN',
+    'GO_UP_FASTER',
+    'GO_DOWN_FASTER'
 ]);
 
 var container = document.getElementById('left-menu');

@@ -63,6 +63,12 @@ select {
     z-index: 9999;
     margin-left: 15px;
 }
+#right-menu {
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+    margin-right: 15px;
+}
 .HELL_ON_EARTH{
     position: fixed;
     width: 100%;
