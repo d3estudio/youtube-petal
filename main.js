@@ -1,6 +1,7 @@
 var Motor = require('./libs/motor');
 
 motor = new Motor("1");
+motor_2 = new Motor("2");
 
 counter = 0;
 
@@ -19,6 +20,7 @@ function animate() {
     }
 
     motor.sendCommand(counter);
+    motor_2.sendCommand(counter);
 
     setTimeout(animate, counter);
 }

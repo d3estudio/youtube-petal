@@ -54,7 +54,10 @@ module.exports = function Motor(number) {
 
         if (cmd != _this.command) {
             // executa o comando
-            _this.redis.send({"comando": cmd});
+            _this.redis.send({
+                "comando": cmd,
+                "name": _this.name
+            });
         } else {
             helper.logger.debug(`${_this.name} SAME COMMAND AS ATUAL COMMAND`);
         }
