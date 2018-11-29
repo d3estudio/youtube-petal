@@ -6,8 +6,8 @@ var RedisClient = function() {
     this.serverUrl = undefined; // ioredis defaults to 127.0.0.1:6379
     this.apiSequence = 0;
     this.apiSequenceMaximum = 32767;
-    this.destinationChannel = 'd3skol.router.map.in';
-    this.sourceChannel = 'd3skol.router.map.out';
+    this.destinationChannel = 'WIP.report';
+    this.sourceChannel = 'WIP';
     this.ackCallback = function() { };
     this.open();
 };

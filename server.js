@@ -2,9 +2,9 @@ var Redis = require('ioredis');
 
 var writeClient = new Redis(),
     listenClient = new Redis(),
-    destinationChannel = 'd3skol.router.map.out';
+    destinationChannel = 'WIP.report';
 
-listenClient.subscribe('d3skol.router.map.in');
+listenClient.subscribe('WIP');
 listenClient.on('message', function(channel, message) {
     try {
         var m = JSON.parse(message);
