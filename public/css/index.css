@@ -22,14 +22,34 @@ select {
     right: 0;
     margin-right: 15px;
 }
+.container {
+    width: 900px;
+    height: 100vh;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.petal {
+    display: flex;
+    justify-content: space-between;
+
+    width: 33.3%;
+    /*background: #000;
+    opacity: 0.2;*/
+}
+
+.p_two {
+    padding: 0 10%;
+}
 
 .motor {
+    align-self: center;
     border: 1px solid #000000;
-    position: absolute;
     width: 50px;
     background: #000000;
-    top: 50%;
-    left: 50%;
     z-index: 1;
 }
 
@@ -38,13 +58,14 @@ select {
     width: 100%;
     left: 0px;
     top: 50%;
-    background: #cccccc;
-    border: 1px solid #cccccc;
+    background: #000;
+    border: 1px solid #000;
+    opacity: 0.1;
     height: 1px;
     z-index: 0;
 }
 
-.motor.one {
+/*.motor.one {
     margin-left: -330px;
 }
 
@@ -92,4 +113,4 @@ select {
 
 .motor.seven {
     margin-left: 55px;
-}
+}*/

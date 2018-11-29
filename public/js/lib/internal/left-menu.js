@@ -39,6 +39,9 @@ var MotorA1 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_a1", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_a1", "command": "SET_HOME"});
+    };
 }
 
 var MotorA2 = function() {
@@ -62,6 +65,9 @@ var MotorA2 = function() {
     };
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_a2", "command": "SET_MIN"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_a2", "command": "SET_HOME"});
     };
 }
 
@@ -87,6 +93,9 @@ var MotorA3 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_a3", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_a3", "command": "SET_HOME"});
+    };
 }
 
 var MotorA4 = function() {
@@ -110,6 +119,9 @@ var MotorA4 = function() {
     };
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_a4", "command": "SET_MIN"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_a4", "command": "SET_HOME"});
     };
 }
 
@@ -135,6 +147,9 @@ var MotorB1 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_b1", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_b1", "command": "SET_HOME"});
+    };
 }
 
 var MotorB2 = function() {
@@ -158,6 +173,9 @@ var MotorB2 = function() {
     };
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_b2", "command": "SET_MIN"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_b2", "command": "SET_HOME"});
     };
 }
 
@@ -183,6 +201,9 @@ var MotorB3 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_b3", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_b3", "command": "SET_HOME"});
+    };
 }
 
 var MotorB4 = function() {
@@ -206,6 +227,9 @@ var MotorB4 = function() {
     };
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_b4", "command": "SET_MIN"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_b4", "command": "SET_HOME"});
     };
 }
 
@@ -231,6 +255,9 @@ var MotorC1 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_c1", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_c1", "command": "SET_HOME"});
+    };
 }
 
 var MotorC2 = function() {
@@ -254,6 +281,9 @@ var MotorC2 = function() {
     };
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_c2", "command": "SET_MIN"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_c2", "command": "SET_HOME"});
     };
 }
 
@@ -279,6 +309,9 @@ var MotorC3 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_c3", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_c3", "command": "SET_HOME"});
+    };
 }
 
 var MotorC4 = function() {
@@ -303,26 +336,32 @@ var MotorC4 = function() {
     this.SET_MIN = function() {
         socket.emit('animate', {"motor": "motor_c4", "command": "SET_MIN"});
     };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": "motor_c4", "command": "SET_HOME"});
+    };
 }
 
 var AllMotors = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "1_PASSO"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "1_PASSO"});
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "-1_PASSO"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "-1_PASSO"});
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "5_PASSO"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "5_PASSO"});
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "-5_PASSO"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "-5_PASSO"});
     };
     this.GO_TO_MIN = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "GO_TO_MIN"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "GO_TO_MIN"});
     };
     this.GO_TO_MAX = function() {
-        socket.emit('animate', {"motor": "all_motors", "command": "GO_TO_MAX"});
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "GO_TO_MAX"});
+    };
+    this.SET_HOME = function() {
+        socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "SET_HOME"});
     };
 }
 
@@ -333,6 +372,7 @@ createFolder('Motor A1', new MotorA1(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -344,6 +384,7 @@ createFolder('Motor A2', new MotorA2(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -355,6 +396,7 @@ createFolder('Motor A3', new MotorA3(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -366,6 +408,7 @@ createFolder('Motor A4', new MotorA4(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -377,6 +420,7 @@ createFolder('Motor B1', new MotorB1(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -388,6 +432,7 @@ createFolder('Motor B2', new MotorB2(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -399,6 +444,7 @@ createFolder('Motor B3', new MotorB3(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -410,6 +456,7 @@ createFolder('Motor B4', new MotorB4(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -421,6 +468,7 @@ createFolder('Motor C1', new MotorC1(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -432,6 +480,7 @@ createFolder('Motor C2', new MotorC2(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -443,6 +492,7 @@ createFolder('Motor C3', new MotorC3(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -454,6 +504,7 @@ createFolder('Motor C4', new MotorC4(), [
     'GO_DOWN_FASTER',
     'SET_MAX',
     'SET_MIN',
+    'SET_HOME',
     'CLEAR_LIMITS'
 
 ]);
@@ -464,7 +515,8 @@ createFolder('All Motors', new AllMotors(), [
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'GO_TO_MIN',
-    'GO_TO_MAX'
+    'GO_TO_MAX',
+    'SET_HOME'
 
 ]);
 
