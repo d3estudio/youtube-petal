@@ -72,7 +72,7 @@ module.exports = function Motor(identification) {
         }
         _this.command = cmd;
 
-        // wait for diego instructions
+        // waiting for diego instructions
         _this.redis.send({
             "name": _this.name,
             "comando": _send_cmd

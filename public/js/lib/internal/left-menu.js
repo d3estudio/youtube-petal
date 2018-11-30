@@ -18,8 +18,11 @@ var createFolder = function(name, prop, items, custom) {
 };
 
 var Animate = function() {
-    this.IDLE = function() {
-        socket.emit('idle', {});
+    this.PETAL_1_UP = function() {
+        socket.emit('petal', 'petal_1_up');
+    };
+    this.PETAL_1_DOWN = function() {
+        socket.emit('petal', 'petal_1_down');
     };
 }
 
@@ -378,7 +381,8 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
 });
 
 createFolder('Animate', new Animate(), [
-    'IDLE'
+    'PETAL_1_UP',
+    'PETAL_1_DOWN'
 ]);
 
 createFolder('Motor A1', new MotorA1(), [

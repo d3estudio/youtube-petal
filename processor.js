@@ -26,16 +26,28 @@ var motors = {
     "motor_c4": new Motor("motor_c4")
 }
 
-var petal_1 = ["motor_a1","motor_a2","motor_a3","motor_a4"]
+var petal_1 = ["motor_a1", "motor_a2", "motor_a3", "motor_a4"]
 
+var petal = function(petal) {
 
+    console.log(petal);
 
-var idle = function() {
-    petal_1.forEach((motor, index) => {
-        var current_motor = motors[motor];
-        current_motor.sendCommand(100);
-        socket.emit("exec_front", {"motor": motor, "command": 100});
-    });
+    if (petal == 'petal_1_up') {
+        petal_1.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(0);
+            socket.emit("exec_front", { "motor": motor, "command": 0 });
+        });
+    }
+
+    if (petal == 'petal_1_down') {
+        petal_1.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(100);
+            socket.emit("exec_front", { "motor": motor, "command": 100 });
+        });
+    }
+
 }
 
 
@@ -53,8 +65,8 @@ socket.on('connect', () => {
         helper.logger.debug(`[Processor] Received Command ${command.command}`);
     })
 
-    .on('exec_idle', (command) => {
-        idle()
+    .on('exec_petal', (command) => {
+        petal(command);
     })
 
     .on('disconnect', () => {
