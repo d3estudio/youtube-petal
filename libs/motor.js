@@ -2,65 +2,82 @@
 var helper = require('../libs/shared');
 var RedisClient = require('../libs/redis');
 
-module.exports = function Motor(number) {
+module.exports = function Motor(identification, min, max) {
     var _this = this;
 
     _this.redis = new RedisClient();
 
     //naming for LOGS
-    _this.name = '_[' + number + ']_';
-
-    _this.STEP_MIN = 10
-
-    //motor status
-    _this.locked = false;
+    _this.name = identification;
 
     //motor current angle
     _this.currentPosition = 0;
-    _this.newPosition = 0;
+
+    _this.minPosition = min ? min : 0;
+    _this.maxPosition = max ? max : 0;
 
     //motor current applied command
+    // 0% -> 100%
     _this.command = 0;
 
-    //get FPS
-    _this.getFPS = () => {
-        // returnar o FPS das animacoes
-        return time;
+    // set maxPosition
+    _this.setMaxPosition = function() {
+        _this.maxPosition = _this.currentPosition;
     }
 
-    //lock this motor to wait the current command
-    _this.lock = () => {
-        _this.locked = true;
-    }
-
-    //unlock this motor and allow another command
-    _this.unlock = () => {
-        _this.locked = false;
-    }
-
-    //get the steps to walk between newAngle and currentAngle
-    _this.getSteps = (cmd) => {
-        if (cmd > _this.command) {
-            return (_this.newPosition - _this.currentPosition) / _this.STEP_MIN;
-        } else if (cmd < _this.command) {
-            return (_this.currentPosition - _this.newPosition) / _this.STEP_MIN;
-        } else {
-            return (_this.newPosition - _this.currentPosition) / _this.STEP_MIN;
-        }
+    // set maxPosition
+    _this.setMinPosition = function() {
+        _this.minPosition = _this.currentPosition;
     }
 
     //send a command to rotate the motor according to the following table:
     _this.sendCommand = (cmd) => {
 
-        if (cmd != _this.command) {
-            // executa o comando
-            _this.redis.send({
-                "name": _this.name,
-                "comando": cmd
-            });
-        } else {
-            helper.logger.debug(`${_this.name} SAME COMMAND AS ATUAL COMMAND`);
+        if (cmd == 101) {
+            _this.currentPosition = _this.currentPosition + 1;
+            //convert command here
+            _send_cmd = _this.currentPosition;
+        } else if (cmd == -101) {
+            _this.currentPosition = _this.currentPosition - 1;
+            //convert command here
+            _send_cmd = _this.currentPosition;
+        } else if (cmd == 105) {
+            _this.currentPosition = _this.currentPosition + 5;
+            //convert command here
+            _send_cmd = _this.currentPosition;
+        } else if (cmd == -105) {
+            _this.currentPosition = _this.currentPosition - 5;
+            //convert command here
+            _send_cmd = _this.currentPosition;
+        } else if (cmd == 110) {
+            _this.currentPosition = 0;
+            _this.newPosition = 0;
+            _this.minPosition = 0;
+            _this.maxPosition = 0;
+            _this.command = 0;
+            // clear command here
+            _send_cmd = 0;
+        } else if (cmd == 111) {
+            _this.setMaxPosition();
+            // max command here
+            _send_cmd = 0;
+        } else if (cmd == -111) {
+            _this.setMinPosition();
+            // max command here
+            _send_cmd = 0;
+        } else if (cmd <= 100 || cmd >= 0) {
+            var _total = _this.maxPosition - _this.minPosition;
+            _send_cmd = parseInt(_total * (cmd / 100));
         }
         _this.command = cmd;
+
+        // wait for diego instructions
+        _this.redis.send({
+            "name": _this.name,
+            "comando": _send_cmd
+        });
+
+        helper.logger.debug(`[${_this.name}] COMMAND ${_this.command}`);
+
     }
 }
