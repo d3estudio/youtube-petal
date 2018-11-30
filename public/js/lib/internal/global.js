@@ -29,8 +29,11 @@ socket
             // clear command here
             _send_cmd = 0;
         } else if (cmd <= 100 && cmd >= 0) {
-            current_height = cmd;
+            var max_height = parseInt(current_motor.data("height"));
+            current_height = cmd * max_height / 100;
         }
+
+        console.log(cmd, current_height);
 
         // current_motor.height(current_height);
         current_motor.animate({
