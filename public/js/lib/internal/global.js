@@ -1,6 +1,6 @@
 var socket = io();
 socket
-    .on('exec', function(command) {
+    .on('exec_web', function(command) {
 
         var name = command.motor;
         var cmd = command.command;
