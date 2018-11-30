@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    background: #3c3c3c;
 }
 select {
     color: #000000;
@@ -23,8 +24,8 @@ select {
     margin-right: 15px;
 }
 .container {
-    width: 900px;
-    height: 100vh;
+    width: 850px;
+    height: 480px;
     position: relative;
     margin: auto;
     display: flex;
@@ -34,22 +35,174 @@ select {
 
 .petal {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
+    position: relative;
     width: 33.3%;
     /*background: #000;
     opacity: 0.2;*/
 }
 
+.p_one .m_one::after {
+    content: "1";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_one .m_two::after {
+    content: "2";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_one .m_three::after {
+    content: "3";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_one .m_four::after {
+    content: "4";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+
+.p_two .m_five::after {
+    content: "5";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_two .m_six::after {
+    content: "6";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_two .m_seven::after {
+    content: "7";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_two .m_eight::after {
+    content: "8";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+
+.p_three .m_nine::after {
+    content: "9";
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_three .m_ten::after {
+    content: "10";
+    position: absolute;
+    top: -30px;
+    left: 35%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_three .m_eleven::after {
+    content: "11";
+    position: absolute;
+    top: -30px;
+    left: 35%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_three .m_twelve::after {
+    content: "12";
+    position: absolute;
+    top: -30px;
+    left: 35%;
+    font-size: 0.8rem;
+    color: #999
+}
+
+
+.motors {
+    position: absolute;
+    top: 240px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sensors {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 70%;
+    top: 30%;
+}
+.As::after {
+    content: "A";
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    font-size: 0.8rem;
+    color: #FFF
+}
+.Bs::after {
+    content: "B";
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    font-size: 0.8rem;
+    color: #FFF
+}
+.Cs::after {
+    content: "C";
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    font-size: 0.8rem;
+    color: #FFF
+}
+
+.sensor {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #828282;
+    border-radius: 10px;
+}
+.sensor.active {
+    background-color: #07ff07;
+}
+
 .p_two {
-    padding: 0 10%;
+    margin: 0 10%;
 }
 
 .motor {
-    align-self: center;
-    border: 1px solid #000000;
+    position: relative;
+    align-self: flex-start;
+    border: 1px solid #fff;
     width: 50px;
-    background: #000000;
+    background: #fff;
     z-index: 1;
 }
 
@@ -58,59 +211,9 @@ select {
     width: 100%;
     left: 0px;
     top: 50%;
-    background: #000;
-    border: 1px solid #000;
-    opacity: 0.1;
+    border-top: 1px dashed #fff;
+    opacity: 0.5;
     height: 1px;
     z-index: 0;
 }
 
-/*.motor.one {
-    margin-left: -330px;
-}
-
-.motor.two {
-    margin-left: -275px;
-}
-
-.motor.three {
-    margin-left: -220px;
-}
-
-.motor.four {
-    margin-left: -165px;
-}
-
-.motor.five {
-    margin-left: -110px;
-}
-
-.motor.six {
-    margin-left: -55px;
-}
-
-
-
-.motor.twelve {
-    margin-left: 330px;
-}
-
-.motor.eleven {
-    margin-left: 275px;
-}
-
-.motor.ten {
-    margin-left: 220px;
-}
-
-.motor.nine {
-    margin-left: 165px;
-}
-
-.motor.eight {
-    margin-left: 110px;
-}
-
-.motor.seven {
-    margin-left: 55px;
-}*/
