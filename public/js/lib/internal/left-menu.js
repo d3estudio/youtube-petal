@@ -17,6 +17,15 @@ var createFolder = function(name, prop, items, custom) {
     }
 };
 
+var Animate = function() {
+    this.PETAL_1_UP = function() {
+        socket.emit('petal', 'petal_1_up');
+    };
+    this.PETAL_1_DOWN = function() {
+        socket.emit('petal', 'petal_1_down');
+    };
+}
+
 var MotorA1 = function() {
     this.GO_UP = function() {
         socket.emit('animate', { "motor": "motor_a1", "command": 101 });
@@ -370,6 +379,11 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
         folder.add(prop, 'command', 0, 100);
     }
 });
+
+createFolder('Animate', new Animate(), [
+    'PETAL_1_UP',
+    'PETAL_1_DOWN'
+]);
 
 createFolder('Motor A1', new MotorA1(), [
     'GO_DOWN',
