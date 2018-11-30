@@ -11,8 +11,6 @@ var Motor = require('./libs/motor');
 var Redis = require('./libs/redis'),
     r = new Redis();
 
-motor = new Motor("1");
-
 var motors = {
     "motor_a1": new Motor("motor_a1"),
     "motor_a2": new Motor("motor_a2"),
