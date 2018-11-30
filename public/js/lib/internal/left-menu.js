@@ -24,6 +24,18 @@ var Animate = function() {
     this.PETAL_1_DOWN = function() {
         socket.emit('petal', 'petal_1_down');
     };
+    this.PETAL_2_UP = function() {
+        socket.emit('petal', 'petal_2_up')
+    };
+    this.PETAL_2_DOWN = function() {
+        socket.emit('petal', 'petal_2_down')
+    };
+    this.PETAL_3_UP = function() {
+        socket.emit('petal', 'petal_3_up')
+    };
+    this.PETAL_3_DOWN = function() {
+        socket.emit('petal', 'petal_3_down')
+    };
 }
 
 var MotorA1 = function() {
@@ -382,7 +394,11 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
 
 createFolder('Animate', new Animate(), [
     'PETAL_1_UP',
-    'PETAL_1_DOWN'
+    'PETAL_1_DOWN',
+    'PETAL_2_UP',
+    'PETAL_2_DOWN',
+    'PETAL_3_UP',
+    'PETAL_3_DOWN'
 ]);
 
 createFolder('Motor A1', new MotorA1(), [

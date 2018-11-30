@@ -27,6 +27,9 @@ var motors = {
 }
 
 var petal_1 = ["motor_a1", "motor_a2", "motor_a3", "motor_a4"]
+var petal_2 = ["motor_b1", "motor_b2", "motor_b3", "motor_b4"]
+var petal_3 = ["motor_c1", "motor_c2", "motor_c3", "motor_c4"]
+
 
 var petal = function(petal) {
 
@@ -42,6 +45,38 @@ var petal = function(petal) {
 
     if (petal == 'petal_1_down') {
         petal_1.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(100);
+            socket.emit("exec_front", { "motor": motor, "command": 100 });
+        });
+    }
+
+    if (petal == 'petal_2_up') {
+        petal_2.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(0);
+            socket.emit("exec_front", { "motor": motor, "command": 0 });
+        });
+    }
+
+    if (petal == 'petal_2_down') {
+        petal_2.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(100);
+            socket.emit("exec_front", { "motor": motor, "command": 100 });
+        });
+    }
+
+    if (petal == 'petal_3_up') {
+        petal_3.forEach((motor, index) => {
+            var current_motor = motors[motor];
+            current_motor.sendCommand(0);
+            socket.emit("exec_front", { "motor": motor, "command": 0 });
+        });
+    }
+
+    if (petal == 'petal_3_down') {
+        petal_3.forEach((motor, index) => {
             var current_motor = motors[motor];
             current_motor.sendCommand(100);
             socket.emit("exec_front", { "motor": motor, "command": 100 });
