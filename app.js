@@ -48,6 +48,9 @@ serverSocket.on('connection', (clientSocket) => {
         .on('exec_front', (command) => {
             serverSocket.emit('exec_web', command);
         })
+        .on('idle', (command) => {
+            serverSocket.emit('exec_idle', command);
+        })
         .on('petal', (command) => {
             serverSocket.emit('exec_petal', command);
         })

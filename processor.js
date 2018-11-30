@@ -85,9 +85,149 @@ var petal = function(petal) {
 
 }
 
+var idle_petal_1 = false;
+var idle_petal_2 = false;
+var idle_petal_3 = false;
 
 
+function run_idle_1(){
 
+    if (idle_petal_1) {
+
+        motors[petal_1[0]].sendCommand(100);
+        motors[petal_1[2]].sendCommand(100);
+        motors[petal_1[1]].sendCommand(0);
+        motors[petal_1[3]].sendCommand(0);
+
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_1[2], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
+        socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
+
+        setTimeout(function(){
+
+            if (idle_petal_1) {
+                motors[petal_1[0]].sendCommand(0);
+                motors[petal_1[2]].sendCommand(0);
+                motors[petal_1[1]].sendCommand(100);
+                motors[petal_1[3]].sendCommand(100);
+
+                socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_1[1], "command": 100 });
+                socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
+
+                setTimeout(run_idle_1, 1000);
+            }
+
+        }, 1000);
+
+    }
+
+}
+
+function run_idle_2(){
+
+    if (idle_petal_2) {
+
+        motors[petal_2[0]].sendCommand(100);
+        motors[petal_2[2]].sendCommand(100);
+        motors[petal_2[1]].sendCommand(0);
+        motors[petal_2[3]].sendCommand(0);
+
+        socket.emit("exec_front", { "motor": petal_2[0], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_2[2], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
+        socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
+
+        setTimeout(function(){
+
+            if (idle_petal_2) {
+                motors[petal_2[0]].sendCommand(0);
+                motors[petal_2[2]].sendCommand(0);
+                motors[petal_2[1]].sendCommand(100);
+                motors[petal_2[3]].sendCommand(100);
+
+                socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_2[1], "command": 100 });
+                socket.emit("exec_front", { "motor": petal_2[3], "command": 100 });
+
+                setTimeout(run_idle_2, 1000);
+            }
+
+        }, 1000);
+    }
+
+}
+
+function run_idle_3(){
+
+    if (idle_petal_3) {
+
+        motors[petal_3[0]].sendCommand(100);
+        motors[petal_3[2]].sendCommand(100);
+        motors[petal_3[1]].sendCommand(0);
+        motors[petal_3[3]].sendCommand(0);
+
+        socket.emit("exec_front", { "motor": petal_3[0], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_3[2], "command": 100 });
+        socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
+        socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
+
+        setTimeout(function(){
+
+            if (idle_petal_3) {
+                motors[petal_3[0]].sendCommand(0);
+                motors[petal_3[2]].sendCommand(0);
+                motors[petal_3[1]].sendCommand(100);
+                motors[petal_3[3]].sendCommand(100);
+
+                socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_3[1], "command": 100 });
+                socket.emit("exec_front", { "motor": petal_3[3], "command": 100 });
+
+                setTimeout(run_idle_3, 1000);
+            }
+
+        }, 1000);
+
+    }
+
+}
+
+function idle(command) {
+
+    if (command == 'idle_1_on') {
+        if (!idle_petal_1) {
+            setTimeout(run_idle_1, 100);
+        }
+        idle_petal_1 = true;
+    }
+    if (command == 'idle_1_off') {
+        idle_petal_1 = false;
+    }
+    if (command == 'idle_2_on') {
+        if (!idle_petal_2) {
+            setTimeout(run_idle_2, 100);
+        }
+        idle_petal_2 = true;
+    }
+    if (command == 'idle_2_off') {
+        idle_petal_2 = false;
+    }
+    if (command == 'idle_3_on') {
+        if (!idle_petal_3) {
+            setTimeout(run_idle_3, 100);
+        }
+        idle_petal_3 = true;
+    }
+    if (command == 'idle_3_off') {
+        idle_petal_3 = false;
+    }
+
+}
 
 socket.on('connect', () => {
         helper.logger.debug(`[Processor] Connected to port ${settings.SOCKET_PORT}`);
@@ -98,6 +238,10 @@ socket.on('connect', () => {
         motors[command.motor].sendCommand(command.command);
         socket.emit("exec_front", command.command)
         helper.logger.debug(`[Processor] Received Command ${command.command}`);
+    })
+
+    .on('exec_idle', (command) => {
+        idle(command);
     })
 
     .on('exec_petal', (command) => {

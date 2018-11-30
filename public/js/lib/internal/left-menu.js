@@ -17,6 +17,28 @@ var createFolder = function(name, prop, items, custom) {
     }
 };
 
+
+var Idle = function() {
+    this.IDLE_1_ON = function() {
+        socket.emit('idle', 'idle_1_on');
+    }
+    this.IDLE_1_OFF = function() {
+        socket.emit('idle', 'idle_1_off');
+    }
+    this.IDLE_2_ON = function() {
+        socket.emit('idle', 'idle_2_on');
+    }
+    this.IDLE_2_OFF = function() {
+        socket.emit('idle', 'idle_2_off');
+    }
+    this.IDLE_3_ON = function() {
+        socket.emit('idle', 'idle_3_on');
+    }
+    this.IDLE_3_OFF = function() {
+        socket.emit('idle', 'idle_3_off');
+    }
+}
+
 var Animate = function() {
     this.PETAL_1_UP = function() {
         socket.emit('petal', 'petal_1_up');
@@ -391,6 +413,15 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
         folder.add(prop, 'command', 0, 100);
     }
 });
+
+createFolder('Idle', new Idle(), [
+    'IDLE_1_ON',
+    'IDLE_1_OFF',
+    'IDLE_2_ON',
+    'IDLE_2_OFF',
+    'IDLE_3_ON',
+    'IDLE_3_OFF'
+]);
 
 createFolder('Animate', new Animate(), [
     'PETAL_1_UP',
