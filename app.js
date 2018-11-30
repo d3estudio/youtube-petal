@@ -45,6 +45,9 @@ serverSocket.on('connection', (clientSocket) => {
         .on('update', (command) => {
             serverSocket.emit('command', command);
         })
+        .on('exec_front', (command) => {
+            serverSocket.emit('exec_web', command);
+        })
         .on('animate', (command) => {
             serverSocket.emit('exec', command);
         });

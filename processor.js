@@ -31,6 +31,7 @@ socket.on('connect', () => {
     })
     .on('exec', (command) => {
         motors[command.motor].sendCommand(command.command);
+        socket.emit("exec_front", command.command)
         helper.logger.debug(`[Processor] Received Command ${command.command}`);
     })
     .on('disconnect', () => {

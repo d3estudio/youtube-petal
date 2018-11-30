@@ -1,6 +1,6 @@
 var socket = io();
 socket
-    .on('exec', function(command) {
+    .on('exec_web', function(command) {
 
         // comandos traduzidos
         // for(var i in name) {
