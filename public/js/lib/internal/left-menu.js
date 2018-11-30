@@ -19,25 +19,25 @@ var createFolder = function(name, prop, items, custom) {
 
 var MotorA1 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a1", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a1", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a1", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a1", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_a1", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_a1", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_a1", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_a1", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_a1", "command": "SET_HOME"});
@@ -46,25 +46,25 @@ var MotorA1 = function() {
 
 var MotorA2 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a2", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a2", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a2", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a2", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_a2", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_a2", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_a2", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_a2", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_a2", "command": "SET_HOME"});
@@ -73,25 +73,25 @@ var MotorA2 = function() {
 
 var MotorA3 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a3", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a3", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a3", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a3", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_a3", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_a3", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_a3", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_a3", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_a3", "command": "SET_HOME"});
@@ -100,25 +100,25 @@ var MotorA3 = function() {
 
 var MotorA4 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a4", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_a4", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a4", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_a4", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_a4", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_a4", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_a4", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_a4", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_a4", "command": "SET_HOME"});
@@ -127,25 +127,25 @@ var MotorA4 = function() {
 
 var MotorB1 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b1", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b1", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b1", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b1", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_b1", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_b1", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_b1", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_b1", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_b1", "command": "SET_HOME"});
@@ -154,25 +154,25 @@ var MotorB1 = function() {
 
 var MotorB2 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b2", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b2", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b2", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b2", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_b2", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_b2", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_b2", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_b2", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_b2", "command": "SET_HOME"});
@@ -181,25 +181,25 @@ var MotorB2 = function() {
 
 var MotorB3 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b3", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b3", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b3", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b3", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_b3", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_b3", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_b3", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_b3", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_b3", "command": "SET_HOME"});
@@ -208,25 +208,25 @@ var MotorB3 = function() {
 
 var MotorB4 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b4", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_b4", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b4", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_b4", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_b4", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_b4", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_b4", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_b4", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_b4", "command": "SET_HOME"});
@@ -235,25 +235,25 @@ var MotorB4 = function() {
 
 var MotorC1 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c1", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c1", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c1", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c1", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_c1", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_c1", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_c1", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_c1", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_c1", "command": "SET_HOME"});
@@ -262,25 +262,25 @@ var MotorC1 = function() {
 
 var MotorC2 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c2", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c2", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c2", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c2", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_c2", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_c2", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_c2", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_c2", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_c2", "command": "SET_HOME"});
@@ -289,25 +289,25 @@ var MotorC2 = function() {
 
 var MotorC3 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c3", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c3", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c3", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c3", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_c3", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_c3", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_c3", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_c3", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_c3", "command": "SET_HOME"});
@@ -316,25 +316,25 @@ var MotorC3 = function() {
 
 var MotorC4 = function() {
     this.GO_UP = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c4", "command": 101 });
     };
     this.GO_DOWN = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "-1_PASSO"});
+        socket.emit('animate', { "motor": "motor_c4", "command": -101 });
     };
     this.GO_UP_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c4", "command": 105 });
     };
     this.GO_DOWN_FASTER = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "-5_PASSO"});
+        socket.emit('animate', { "motor": "motor_c4", "command": -105 });
     };
     this.CLEAR_LIMITS = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "CLEAR_LIMITS"});
+        socket.emit('animate', { "motor": "motor_c4", "command": 110 });
     };
     this.SET_MAX = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "SET_MAX"});
+        socket.emit('animate', { "motor": "motor_c4", "command": 111 });
     };
     this.SET_MIN = function() {
-        socket.emit('animate', {"motor": "motor_c4", "command": "SET_MIN"});
+        socket.emit('animate', { "motor": "motor_c4", "command": -111 });
     };
     this.SET_HOME = function() {
         socket.emit('animate', {"motor": "motor_c4", "command": "SET_HOME"});
@@ -364,6 +364,28 @@ var AllMotors = function() {
         socket.emit('animate', {"motor": [ "motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], "command": "SET_HOME"});
     };
 }
+
+var Unicast = function() {
+    this.SEND = function() {
+        console.log(this.command);
+        socket.emit('animate', {
+            "motor": this.motor,
+            "command": this.command
+        });
+    };
+    this.motor = 'motor_a1';
+    this.command = 0;
+}
+
+createFolder('Unicast', new Unicast(), ['SEND'], {
+    before: function(folder, prop) {
+        folder.add(prop, 'motor', {
+            'Motor A1': 'motor_a1',
+            'Motor A2': 'motor_a2'
+        });
+        folder.add(prop, 'command', 0);
+    }
+});
 
 createFolder('Motor A1', new MotorA1(), [
     'GO_UP',
