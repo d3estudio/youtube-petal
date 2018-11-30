@@ -65,7 +65,7 @@ module.exports = function Motor(identification, min, max) {
             _this.setMinPosition();
             // max command here
             _send_cmd = 0;
-        } else if (cmd <= 100) {
+        } else if (cmd <= 100 || cmd >= 0) {
             var _total = _this.maxPosition - _this.minPosition;
             _send_cmd = parseInt(_total * (cmd / 100));
         }
