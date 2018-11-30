@@ -17,6 +17,12 @@ var createFolder = function(name, prop, items, custom) {
     }
 };
 
+var Animate = function() {
+    this.IDLE = function() {
+        socket.emit('idle', {});
+    };
+}
+
 var MotorA1 = function() {
     this.GO_UP = function() {
         socket.emit('animate', { "motor": "motor_a1", "command": 101 });
@@ -370,6 +376,10 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
         folder.add(prop, 'command', 0, 100);
     }
 });
+
+createFolder('Animate', new Animate(), [
+    'IDLE'
+]);
 
 createFolder('Motor A1', new MotorA1(), [
     'GO_DOWN',

@@ -14,7 +14,7 @@ module.exports = function Motor(identification) {
     _this.currentPosition = 0;
 
     _this.minPosition = 0;
-    _this.maxPosition = 0;
+    _this.maxPosition = 100;
 
     //motor current applied command
     // 0% -> 100%
