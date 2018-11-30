@@ -42,14 +42,44 @@ var petal = function(petal) {
             socket.emit("exec_front", { "motor": motor, "command": 0 });
         });
     }
+    ///DESCE COM DELAY
 
     if (petal == 'petal_1_down') {
-        petal_1.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(100);
-            socket.emit("exec_front", { "motor": motor, "command": 100 });
-        });
+
+        motors[petal_1[0]].sendCommand(100);
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 100 });
+
+        setTimeout(function(){
+
+            motors[petal_1[1]].sendCommand(100);
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 100 });
+
+            setTimeout(function(){
+
+                motors[petal_1[2]].sendCommand(100);
+                socket.emit("exec_front", { "motor": petal_1[2], "command": 100 });
+                setTimeout(function(){
+
+                    motors[petal_1[3]].sendCommand(100);
+                    socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
+
+                }, 500);
+
+            }, 500);
+
+        }, 500);
+
     }
+
+    ///DESCE AO MESMO TEMPO
+
+    // if (petal == 'petal_1_down') {
+    //     petal_1.forEach((motor, index) => {
+    //         var current_motor = motors[motor];
+    //         current_motor.sendCommand(100);
+    //         socket.emit("exec_front", { "motor": motor, "command": 100 });
+    //     });
+    // }
 
     if (petal == 'petal_2_up') {
         petal_2.forEach((motor, index) => {
@@ -88,6 +118,16 @@ var petal = function(petal) {
 var idle_petal_1 = false;
 var idle_petal_2 = false;
 var idle_petal_3 = false;
+
+var sensor_a1 = false;
+var sensor_a2 = false;
+var sensor_a3 = false;
+var sensor_b1 = false;
+var sensor_b2 = false;
+var sensor_b3 = false;
+var sensor_c1 = false;
+var sensor_c2 = false;
+var sensor_c3 = false;
 
 
 function run_idle_1(){
@@ -229,6 +269,203 @@ function idle(command) {
 
 }
 
+function activatedSensorA() {
+
+
+    if (sensor_a1 && sensor_a2 && sensor_a3) {
+
+        setTimeout(function(){
+            socket.emit('petal', 'petal_1_down');
+
+            ///PETALA SOBE
+            // setTimeout(function(){
+            //     socket.emit('petal', 'petal_1_up');
+            //     setTimeout(activatedSensor, 100);
+            // }, 1000);
+
+        },1000);
+
+
+    } else if (sensor_a1 || sensor_a2 || sensor_a3) {
+        idle_petal_1 = false;
+
+        setTimeout(function(){
+            motors[petal_1[0]].sendCommand(0);
+            motors[petal_1[1]].sendCommand(0);
+            motors[petal_1[2]].sendCommand(0);
+            motors[petal_1[3]].sendCommand(0);
+
+            socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
+
+            setTimeout(activatedSensorA, 100);
+
+        }, 1000);
+    } else {
+        setTimeout(activatedSensorA, 100);
+    }
+
+    ///ELSE PRA LIGAR IDLE
+    // else if (!sensor_a1 && !sensor_a2 && !sensor_a3) {
+    //     setTimeout(function(){
+    //         if (!idle_petal_1) {
+    //             idle_petal_1 = true;
+    //             run_idle_1();
+    //         }
+    //         setTimeout(activatedSensor, 100);
+    //     }, 1000);
+    // }
+}
+
+function activatedSensorB() {
+
+    if (sensor_b1 && sensor_b2 && sensor_b3) {
+
+        setTimeout(function(){
+            socket.emit('petal', 'petal_2_down');
+
+        },1000);
+
+
+    } else if (sensor_b1 || sensor_b2 || sensor_b3) {
+        idle_petal_2 = false;
+
+        setTimeout(function(){
+            motors[petal_2[0]].sendCommand(0);
+            motors[petal_2[1]].sendCommand(0);
+            motors[petal_2[2]].sendCommand(0);
+            motors[petal_2[3]].sendCommand(0);
+
+            socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
+
+            setTimeout(activatedSensorB, 100);
+
+        }, 1000);
+    } else {
+        setTimeout(activatedSensorB, 100);
+    }
+
+}
+
+function activatedSensorC() {
+
+    if (sensor_c1 && sensor_c2 && sensor_c3) {
+
+        setTimeout(function(){
+            socket.emit('petal', 'petal_3_down');
+
+        },1000);
+
+
+    } else if (sensor_c1 || sensor_c2 || sensor_c3) {
+        idle_petal_3 = false;
+
+        setTimeout(function(){
+            motors[petal_3[0]].sendCommand(0);
+            motors[petal_3[1]].sendCommand(0);
+            motors[petal_3[2]].sendCommand(0);
+            motors[petal_3[3]].sendCommand(0);
+
+            socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
+
+            setTimeout(activatedSensorC, 100);
+
+        }, 1000);
+    } else {
+        setTimeout(activatedSensorC, 100);
+    }
+}
+
+activatedSensorA();
+activatedSensorB();
+activatedSensorC();
+
+
+function sensor(command) {
+
+    if (command == 'sensor_a1_on') {
+        sensor_a1 = true;
+    }
+    if (command == 'sensor_a1_off') {
+        sensor_a1 = false;
+    }
+    console.log("sensor_a1: " + sensor_a1);
+
+    if (command == 'sensor_a2_on') {
+        sensor_a2 = true;
+    }
+    if (command == 'sensor_a2_off') {
+        sensor_a2 = false;
+    }
+    console.log("sensor_a2: " + sensor_a2);
+
+    if (command == 'sensor_a3_on') {
+        sensor_a3 = true;
+    }
+    if (command == 'sensor_a3_off') {
+        sensor_a3 = false;
+    }
+    console.log("sensor_a3: " + sensor_a3);
+
+    if (command == 'sensor_b1_on') {
+        sensor_b1 = true;
+    }
+    if (command == 'sensor_b1_off') {
+        sensor_b1 = false;
+    }
+    console.log("sensor_b1: " + sensor_b1);
+
+    if (command == 'sensor_b2_on') {
+        sensor_b2 = true;
+    }
+    if (command == 'sensor_b2_off') {
+        sensor_b2 = false;
+    }
+    console.log("sensor_b2: " + sensor_b2);
+
+    if (command == 'sensor_b3_on') {
+        sensor_b3 = true;
+    }
+    if (command == 'sensor_b3_off') {
+        sensor_b3 = false;
+    }
+    console.log("sensor_b3: " + sensor_b3);
+
+    if (command == 'sensor_c1_on') {
+        sensor_c1 = true;
+    }
+    if (command == 'sensor_c1_off') {
+        sensor_c1 = false;
+    }
+    console.log("sensor_c1: " + sensor_c1);
+
+    if (command == 'sensor_c2_on') {
+        sensor_c2 = true;
+    }
+    if (command == 'sensor_c2_off') {
+        sensor_c2 = false;
+    }
+    console.log("sensor_c2: " + sensor_c2);
+
+    if (command == 'sensor_c3_on') {
+        sensor_c3 = true;
+    }
+    if (command == 'sensor_c3_off') {
+        sensor_c3 = false;
+    }
+    console.log("sensor_c3: " + sensor_c3);
+
+
+}
+
 socket.on('connect', () => {
         helper.logger.debug(`[Processor] Connected to port ${settings.SOCKET_PORT}`);
     })
@@ -238,6 +475,10 @@ socket.on('connect', () => {
         motors[command.motor].sendCommand(command.command);
         socket.emit("exec_front", command.command)
         helper.logger.debug(`[Processor] Received Command ${command.command}`);
+    })
+
+    .on('exec_sensor', (command) => {
+        sensor(command);
     })
 
     .on('exec_idle', (command) => {
