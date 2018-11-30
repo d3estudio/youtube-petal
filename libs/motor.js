@@ -2,7 +2,7 @@
 var helper = require('../libs/shared');
 var RedisClient = require('../libs/redis');
 
-module.exports = function Motor(identification, min, max) {
+module.exports = function Motor(identification) {
     var _this = this;
 
     _this.redis = new RedisClient();
@@ -13,8 +13,8 @@ module.exports = function Motor(identification, min, max) {
     //motor current angle
     _this.currentPosition = 0;
 
-    _this.minPosition = min ? min : 0;
-    _this.maxPosition = max ? max : 0;
+    _this.minPosition = 0;
+    _this.maxPosition = 0;
 
     //motor current applied command
     // 0% -> 100%
@@ -34,24 +34,23 @@ module.exports = function Motor(identification, min, max) {
     _this.sendCommand = (cmd) => {
 
         if (cmd == 101) {
-            _this.currentPosition = _this.currentPosition + 1;
-            //convert command here
-            _send_cmd = _this.currentPosition;
-        } else if (cmd == -101) {
             _this.currentPosition = _this.currentPosition - 1;
             //convert command here
             _send_cmd = _this.currentPosition;
+        } else if (cmd == -101) {
+            _this.currentPosition = _this.currentPosition + 1;
+            //convert command here
+            _send_cmd = _this.currentPosition;
         } else if (cmd == 105) {
-            _this.currentPosition = _this.currentPosition + 5;
+            _this.currentPosition = _this.currentPosition - 5;
             //convert command here
             _send_cmd = _this.currentPosition;
         } else if (cmd == -105) {
-            _this.currentPosition = _this.currentPosition - 5;
+            _this.currentPosition = _this.currentPosition + 5;
             //convert command here
             _send_cmd = _this.currentPosition;
         } else if (cmd == 110) {
             _this.currentPosition = 0;
-            _this.newPosition = 0;
             _this.minPosition = 0;
             _this.maxPosition = 0;
             _this.command = 0;
@@ -65,9 +64,11 @@ module.exports = function Motor(identification, min, max) {
             _this.setMinPosition();
             // max command here
             _send_cmd = 0;
-        } else if (cmd <= 100 || cmd >= 0) {
+        } else if (cmd <= 100 && cmd >= 0) {
+            helper.logger.debug(`[${_this.name}] ${_this.minPosition} ${_this.maxPosition}`);
             var _total = _this.maxPosition - _this.minPosition;
-            _send_cmd = parseInt(_total * (cmd / 100));
+            var sample = _total * (cmd / 100);
+            _send_cmd = _this.minPosition + sample;
         }
         _this.command = cmd;
 

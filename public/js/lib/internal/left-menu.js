@@ -383,7 +383,7 @@ createFolder('Unicast', new Unicast(), ['SEND'], {
             'Motor A1': 'motor_a1',
             'Motor A2': 'motor_a2'
         });
-        folder.add(prop, 'command', 0);
+        folder.add(prop, 'command', 0, 100);
     }
 });
 
