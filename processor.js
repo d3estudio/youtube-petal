@@ -473,7 +473,7 @@ socket.on('connect', () => {
     // COMANDOS CHEGAM AQUI
     .on('exec', (command) => {
         motors[command.motor].sendCommand(command.command);
-        socket.emit("exec_front", command.command)
+        socket.emit("exec_front", command)
         helper.logger.debug(`[Processor] Received Command ${command.command}`);
     })
 
