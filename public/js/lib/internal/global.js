@@ -38,7 +38,7 @@ socket
         // current_motor.height(current_height);
         current_motor.animate({
             height: current_height
-          }, 100, function() {
+          }, 1000, 'easeOutQuad', function() {
             // Animation complete.
           });
 
