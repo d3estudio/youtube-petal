@@ -370,6 +370,16 @@ var AllMotors = function() {
         socket.emit('animate', { "motor": value, "command": -105 });
         });
     };
+    this.SET_MAX = function() {
+        $.each(["motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 111 });
+        });
+    };
+    this.SET_MIN = function() {
+        $.each(["motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -111 });
+        });
+    };
     this.GO_TO_MIN = function() {
         $.each(["motor_a1", "motor_a2", "motor_a3", "motor_a4", "motor_b1", "motor_b2", "motor_b3", "motor_b4", "motor_c1", "motor_c2", "motor_c3", "motor_c4"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 0 });
@@ -557,6 +567,8 @@ createFolder('All Motors', new AllMotors(), [
     'GO_UP',
     'GO_DOWN_FASTER',
     'GO_UP_FASTER',
+    'SET_MIN',
+    'SET_MAX',
     'GO_TO_MIN',
     'GO_TO_MAX'
 ]);

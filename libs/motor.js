@@ -78,6 +78,7 @@ module.exports = function Motor(identification) {
             var _total = _this.maxPosition - _this.minPosition;
             var sample = _total * (cmd / 100);
             _send_cmd = _this.minPosition + sample;
+            _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd]);
         }
         _this.command = cmd;
 
