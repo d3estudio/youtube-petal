@@ -73,10 +73,7 @@ module.exports = function Motor(identification) {
         _this.command = cmd;
 
         // waiting for diego instructions
-        _this.redis.send({
-            "name": _this.name,
-            "comando": _send_cmd
-        });
+        _this.redis.send("GOTO_STEP", [_this.name, _send_cmd]);
 
         helper.logger.debug(`[${_this.name}] COMMAND ${_this.command}`);
 
