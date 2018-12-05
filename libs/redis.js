@@ -4,10 +4,11 @@ var helper = require('../libs/shared');
 
 var RedisClient = function() {
     this.serverUrl = undefined; // ioredis defaults to 127.0.0.1:6379
+    //numenor.hackeneering.com
     this.apiSequence = 0;
     this.apiSequenceMaximum = 32767;
     this.destinationChannel = 'backendD3Youtube';
-    this.sourceChannel = 'IPC2sendTester';
+    this.sourceChannel = 'lucas';
     this.ackCallback = function() { };
     this.open();
 };
