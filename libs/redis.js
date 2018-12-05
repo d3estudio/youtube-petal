@@ -6,7 +6,7 @@ var RedisClient = function() {
     this.serverUrl = undefined; // ioredis defaults to 127.0.0.1:6379
     this.apiSequence = 0;
     this.apiSequenceMaximum = 32767;
-    this.destinationChannel = 'WIP.report';
+    this.destinationChannel = 'backendD3Youtube';
     this.sourceChannel = 'WIP';
     this.ackCallback = function() { };
     this.open();

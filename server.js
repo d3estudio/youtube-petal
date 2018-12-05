@@ -2,7 +2,7 @@ var Redis = require('ioredis');
 
 var writeClient = new Redis(),
     listenClient = new Redis(),
-    destinationChannel = 'WIP.report';
+    destinationChannel = 'backendD3Youtube';
 
 listenClient.subscribe('WIP');
 listenClient.on('message', function(channel, message) {
