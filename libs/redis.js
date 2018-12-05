@@ -26,7 +26,7 @@ RedisClient.prototype = {
             d: this.destinationChannel,
             s: this.sourceChannel,
             c: command,
-            p: [JSON.stringify(payload)],
+            p: payload,
             a: 0,
             sq: this.nextApiSeq()
         };
