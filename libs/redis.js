@@ -7,7 +7,7 @@ var RedisClient = function() {
     this.apiSequence = 0;
     this.apiSequenceMaximum = 32767;
     this.destinationChannel = 'backendD3Youtube';
-    this.sourceChannel = 'WIP';
+    this.sourceChannel = 'IPC2sendTester';
     this.ackCallback = function() { };
     this.open();
 };
