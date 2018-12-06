@@ -15,7 +15,7 @@ var motors = {
     "motor_1F1": new Motor("268500993"),
     "motor_1F2": new Motor("268500994"),
     "motor_1B1": new Motor("268500995"),
-    "motor_1B3": new Motor("268500996"),
+    "motor_1B2": new Motor("268500996"),
     "motor_2F1": new Motor("268500997"),
     "motor_2F2": new Motor("268500998"),
     "motor_2B1": new Motor("268500999"),
@@ -26,9 +26,11 @@ var motors = {
     "motor_3B2": new Motor("268501004")
 }
 
-var petal_1 = ["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B3"]
+var petal_1 = ["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2"]
 var petal_2 = ["motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2"]
 var petal_3 = ["motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"]
+
+var all_motors = ["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"]
 
 
 var petal = function(petal) {
@@ -36,6 +38,7 @@ var petal = function(petal) {
     console.log(petal);
 
     ///DESCE COM DELAY
+    //TODO delay pra petala
 
     if (petal == 'petal_1_down') {
 

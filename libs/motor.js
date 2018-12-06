@@ -34,23 +34,23 @@ module.exports = function Motor(identification) {
     _this.sendCommand = (cmd) => {
 
         if (cmd == 101) {
-            _this.currentPosition = _this.currentPosition - 500;
+            _this.currentPosition = _this.currentPosition - 360; //TODO setar passo mínimo
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, +_send_cmd + ""]);
 
         } else if (cmd == -101) {
-            _this.currentPosition = _this.currentPosition + 500;
+            _this.currentPosition = _this.currentPosition + 360; //TODO setar passo mínimo
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == 105) {
-            _this.currentPosition = _this.currentPosition - 2000;
+            _this.currentPosition = _this.currentPosition - 1080; //TODO setar passo rápido
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == -105) {
-            _this.currentPosition = _this.currentPosition + 2000;
+            _this.currentPosition = _this.currentPosition + 1080; //TODO setar passo rápido
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
@@ -75,7 +75,7 @@ module.exports = function Motor(identification) {
 
             setTimeout(function(){
                 _this.redis.send("SET_LOWER_LIMIT", [_this.name, _send_cmd + ""]);
-            }, 20000);
+            }, 2000);
 
 
         } else if (cmd <= 100 && cmd >= 0) {
