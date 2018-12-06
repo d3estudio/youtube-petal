@@ -12,62 +12,81 @@ var Redis = require('./libs/redis'),
     r = new Redis();
 
 var motors = {
-    "motor_a1": new Motor("268500993"),
-    "motor_a2": new Motor("268500994"),
-    "motor_a3": new Motor("268500995"),
-    "motor_a4": new Motor("268500996"),
-    "motor_b1": new Motor("268500997"),
-    "motor_b2": new Motor("268500998"),
-    "motor_b3": new Motor("268500999"),
-    "motor_b4": new Motor("268501000"),
-    "motor_c1": new Motor("268501001"),
-    "motor_c2": new Motor("268501002"),
-    "motor_c3": new Motor("268501003"),
-    "motor_c4": new Motor("268501004")
+    "motor_1F1": new Motor("268500993"),
+    "motor_1F2": new Motor("268500994"),
+    "motor_1B1": new Motor("268500995"),
+    "motor_1B3": new Motor("268500996"),
+    "motor_2F1": new Motor("268500997"),
+    "motor_2F2": new Motor("268500998"),
+    "motor_2B1": new Motor("268500999"),
+    "motor_2B2": new Motor("268501000"),
+    "motor_3F1": new Motor("268501001"),
+    "motor_3F2": new Motor("268501002"),
+    "motor_3B1": new Motor("268501003"),
+    "motor_3B2": new Motor("268501004")
 }
 
-var petal_1 = ["motor_a1", "motor_a2", "motor_a3", "motor_a4"]
-var petal_2 = ["motor_b1", "motor_b2", "motor_b3", "motor_b4"]
-var petal_3 = ["motor_c1", "motor_c2", "motor_c3", "motor_c4"]
+var petal_1 = ["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B3"]
+var petal_2 = ["motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2"]
+var petal_3 = ["motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"]
 
 
 var petal = function(petal) {
 
     console.log(petal);
 
-    if (petal == 'petal_1_up') {
-        petal_1.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(0);
-            socket.emit("exec_front", { "motor": motor, "command": 0 });
-        });
-    }
     ///DESCE COM DELAY
 
     if (petal == 'petal_1_down') {
 
-        motors[petal_1[0]].sendCommand(100);
-        socket.emit("exec_front", { "motor": petal_1[0], "command": 100 });
+        motors[petal_1[3]].sendCommand(100);
+        socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
 
         setTimeout(function(){
 
-            motors[petal_1[1]].sendCommand(100);
-            socket.emit("exec_front", { "motor": petal_1[1], "command": 100 });
+            motors[petal_1[2]].sendCommand(100);
+            socket.emit("exec_front", { "motor": petal_1[2], "command": 100 });
 
             setTimeout(function(){
 
-                motors[petal_1[2]].sendCommand(100);
-                socket.emit("exec_front", { "motor": petal_1[2], "command": 100 });
+                motors[petal_1[1]].sendCommand(100);
+                socket.emit("exec_front", { "motor": petal_1[1], "command": 100 });
                 setTimeout(function(){
 
-                    motors[petal_1[3]].sendCommand(100);
-                    socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
+                    motors[petal_1[0]].sendCommand(100);
+                    socket.emit("exec_front", { "motor": petal_1[0], "command": 100 });
 
-                }, 500);
+                }, 0); //WARNING: todas descem e delay pra F1
 
-            }, 500);
+            }, 0); // B1 e B2 descem e delay pra F1 e F2
 
-        }, 500);
+        }, 0); // WARNING: B2 desce e delay pras outras
+
+    }
+    if (petal == 'petal_1_up') {
+
+        motors[petal_1[0]].sendCommand(0);
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
+
+        setTimeout(function(){
+
+            motors[petal_1[1]].sendCommand(0);
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
+
+            setTimeout(function(){
+
+                motors[petal_1[2]].sendCommand(0);
+                socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
+                setTimeout(function(){
+
+                    motors[petal_1[3]].sendCommand(0);
+                    socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
+
+                }, 0); // WARNING: todas sobem e delay pra B2
+
+            }, 0); // F1 e F2 sobem e delay pra B1 e B2
+
+        }, 0); //WARNING: F1 sobe e delay pras outras
 
     }
 
@@ -80,37 +99,122 @@ var petal = function(petal) {
     //         socket.emit("exec_front", { "motor": motor, "command": 100 });
     //     });
     // }
+    ///SOBE AO MESMO TEMPO
 
-    if (petal == 'petal_2_up') {
-        petal_2.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(0);
-            socket.emit("exec_front", { "motor": motor, "command": 0 });
-        });
-    }
+    // if (petal == 'petal_1_up') {
+    //     petal_1.forEach((motor, index) => {
+    //         var current_motor = motors[motor];
+    //         current_motor.sendCommand(0);
+    //         socket.emit("exec_front", { "motor": motor, "command": 0 });
+    //     });
+    // }
+
 
     if (petal == 'petal_2_down') {
-        petal_2.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(100);
-            socket.emit("exec_front", { "motor": motor, "command": 100 });
-        });
+
+        motors[petal_2[3]].sendCommand(100);
+        socket.emit("exec_front", { "motor": petal_2[3], "command": 100 });
+
+        setTimeout(function(){
+
+            motors[petal_2[2]].sendCommand(100);
+            socket.emit("exec_front", { "motor": petal_2[2], "command": 100 });
+
+            setTimeout(function(){
+
+                motors[petal_2[1]].sendCommand(100);
+                socket.emit("exec_front", { "motor": petal_2[1], "command": 100 });
+                setTimeout(function(){
+
+                    motors[petal_2[0]].sendCommand(100);
+                    socket.emit("exec_front", { "motor": petal_2[0], "command": 100 });
+
+                }, 0); //WARNING: todas descem e delay pra F1
+
+            }, 0); // F1 e F2 sobem e delay pra B1 e B2
+
+        }, 0); //WARNING: F1 sobe e delay pras outras
+
+    }
+    if (petal == 'petal_2_up') {
+
+        motors[petal_2[0]].sendCommand(0);
+        socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
+
+        setTimeout(function(){
+
+            motors[petal_2[1]].sendCommand(0);
+            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
+
+            setTimeout(function(){
+
+                motors[petal_2[2]].sendCommand(0);
+                socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
+                setTimeout(function(){
+
+                    motors[petal_2[3]].sendCommand(0);
+                    socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
+
+                }, 0); // WARNING: todas sobem e delay pra B2
+
+            }, 0); // F1 e F2 sobem e delay pra B1 e B2
+
+        }, 0); //WARNING: F1 sobe e delay pras outras
+
     }
 
-    if (petal == 'petal_3_up') {
-        petal_3.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(0);
-            socket.emit("exec_front", { "motor": motor, "command": 0 });
-        });
-    }
 
     if (petal == 'petal_3_down') {
-        petal_3.forEach((motor, index) => {
-            var current_motor = motors[motor];
-            current_motor.sendCommand(100);
-            socket.emit("exec_front", { "motor": motor, "command": 100 });
-        });
+
+        motors[petal_3[3]].sendCommand(100);
+        socket.emit("exec_front", { "motor": petal_3[3], "command": 100 });
+
+        setTimeout(function(){
+
+            motors[petal_3[2]].sendCommand(100);
+            socket.emit("exec_front", { "motor": petal_3[2], "command": 100 });
+
+            setTimeout(function(){
+
+                motors[petal_3[1]].sendCommand(100);
+                socket.emit("exec_front", { "motor": petal_3[1], "command": 100 });
+                setTimeout(function(){
+
+                    motors[petal_3[0]].sendCommand(100);
+                    socket.emit("exec_front", { "motor": petal_3[0], "command": 100 });
+
+                }, 0); //WARNING: todas descem e delay pra F1
+
+            }, 0); // F1 e F2 sobem e delay pra B1 e B2
+
+        }, 0); //WARNING: F1 sobe e delay pras outras
+
+    }
+    if (petal == 'petal_3_up') {
+
+        motors[petal_3[0]].sendCommand(0);
+        socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
+
+        setTimeout(function(){
+
+            motors[petal_3[1]].sendCommand(0);
+            socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
+
+            setTimeout(function(){
+
+                motors[petal_3[2]].sendCommand(0);
+                socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
+                setTimeout(function(){
+
+                    motors[petal_3[3]].sendCommand(0);
+                    socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
+
+                }, 0); // WARNING: todas sobem e delay pra B2
+
+            }, 0); // F1 e F2 sobem e delay pra B1 e B2
+
+        }, 0); //WARNING: F1 sobe e delay pras outras
+
     }
 
 }
@@ -119,15 +223,15 @@ var idle_petal_1 = false;
 var idle_petal_2 = false;
 var idle_petal_3 = false;
 
-var sensor_a1 = false;
-var sensor_a2 = false;
-var sensor_a3 = false;
-var sensor_b1 = false;
-var sensor_b2 = false;
-var sensor_b3 = false;
-var sensor_c1 = false;
-var sensor_c2 = false;
-var sensor_c3 = false;
+var sensor_1a = false;
+var sensor_1b = false;
+var sensor_1c = false;
+var sensor_2a = false;
+var sensor_2b = false;
+var sensor_2c = false;
+var sensor_3a = false;
+var sensor_3b = false;
+var sensor_3c = false;
 
 
 function run_idle_1(){
@@ -272,7 +376,7 @@ function idle(command) {
 function activatedSensorA() {
 
 
-    if (sensor_a1 && sensor_a2 && sensor_a3) {
+    if (sensor_1a && sensor_1b && sensor_1c) {
 
         setTimeout(function(){
             socket.emit('petal', 'petal_1_down');
@@ -286,7 +390,7 @@ function activatedSensorA() {
         },1000);
 
 
-    } else if (sensor_a1 || sensor_a2 || sensor_a3) {
+    } else if (sensor_1a || sensor_1b || sensor_1c) {
         idle_petal_1 = false;
 
         setTimeout(function(){
@@ -308,7 +412,7 @@ function activatedSensorA() {
     }
 
     ///ELSE PRA LIGAR IDLE
-    // else if (!sensor_a1 && !sensor_a2 && !sensor_a3) {
+    // else if (!sensor_1a && !sensor_1b && !sensor_1c) {
     //     setTimeout(function(){
     //         if (!idle_petal_1) {
     //             idle_petal_1 = true;
@@ -321,7 +425,7 @@ function activatedSensorA() {
 
 function activatedSensorB() {
 
-    if (sensor_b1 && sensor_b2 && sensor_b3) {
+    if (sensor_2a && sensor_2b && sensor_2c) {
 
         setTimeout(function(){
             socket.emit('petal', 'petal_2_down');
@@ -329,7 +433,7 @@ function activatedSensorB() {
         },1000);
 
 
-    } else if (sensor_b1 || sensor_b2 || sensor_b3) {
+    } else if (sensor_2a || sensor_2b || sensor_2c) {
         idle_petal_2 = false;
 
         setTimeout(function(){
@@ -354,7 +458,7 @@ function activatedSensorB() {
 
 function activatedSensorC() {
 
-    if (sensor_c1 && sensor_c2 && sensor_c3) {
+    if (sensor_3a && sensor_3b && sensor_3c) {
 
         setTimeout(function(){
             socket.emit('petal', 'petal_3_down');
@@ -362,7 +466,7 @@ function activatedSensorC() {
         },1000);
 
 
-    } else if (sensor_c1 || sensor_c2 || sensor_c3) {
+    } else if (sensor_3a || sensor_3b || sensor_3c) {
         idle_petal_3 = false;
 
         setTimeout(function(){
@@ -391,77 +495,77 @@ activatedSensorC();
 
 function sensor(command) {
 
-    if (command == 'sensor_a1_on') {
-        sensor_a1 = true;
+    if (command == 'sensor_1a_on') {
+        sensor_1a = true;
     }
-    if (command == 'sensor_a1_off') {
-        sensor_a1 = false;
+    if (command == 'sensor_1a_off') {
+        sensor_1a = false;
     }
-    console.log("sensor_a1: " + sensor_a1);
+    console.log("sensor_1a: " + sensor_1a);
 
-    if (command == 'sensor_a2_on') {
-        sensor_a2 = true;
+    if (command == 'sensor_1b_on') {
+        sensor_1b = true;
     }
-    if (command == 'sensor_a2_off') {
-        sensor_a2 = false;
+    if (command == 'sensor_1b_off') {
+        sensor_1b = false;
     }
-    console.log("sensor_a2: " + sensor_a2);
+    console.log("sensor_1b: " + sensor_1b);
 
-    if (command == 'sensor_a3_on') {
-        sensor_a3 = true;
+    if (command == 'sensor_1c_on') {
+        sensor_1c = true;
     }
-    if (command == 'sensor_a3_off') {
-        sensor_a3 = false;
+    if (command == 'sensor_1c_off') {
+        sensor_1c = false;
     }
-    console.log("sensor_a3: " + sensor_a3);
+    console.log("sensor_1c: " + sensor_1c);
 
-    if (command == 'sensor_b1_on') {
-        sensor_b1 = true;
+    if (command == 'sensor_2a_on') {
+        sensor_2a = true;
     }
-    if (command == 'sensor_b1_off') {
-        sensor_b1 = false;
+    if (command == 'sensor_2a_off') {
+        sensor_2a = false;
     }
-    console.log("sensor_b1: " + sensor_b1);
+    console.log("sensor_2a: " + sensor_2a);
 
-    if (command == 'sensor_b2_on') {
-        sensor_b2 = true;
+    if (command == 'sensor_2b_on') {
+        sensor_2b = true;
     }
-    if (command == 'sensor_b2_off') {
-        sensor_b2 = false;
+    if (command == 'sensor_2b_off') {
+        sensor_2b = false;
     }
-    console.log("sensor_b2: " + sensor_b2);
+    console.log("sensor_2b: " + sensor_2b);
 
-    if (command == 'sensor_b3_on') {
-        sensor_b3 = true;
+    if (command == 'sensor_2c_on') {
+        sensor_2c = true;
     }
-    if (command == 'sensor_b3_off') {
-        sensor_b3 = false;
+    if (command == 'sensor_2c_off') {
+        sensor_2c = false;
     }
-    console.log("sensor_b3: " + sensor_b3);
+    console.log("sensor_2c: " + sensor_2c);
 
-    if (command == 'sensor_c1_on') {
-        sensor_c1 = true;
+    if (command == 'sensor_3a_on') {
+        sensor_3a = true;
     }
-    if (command == 'sensor_c1_off') {
-        sensor_c1 = false;
+    if (command == 'sensor_3a_off') {
+        sensor_3a = false;
     }
-    console.log("sensor_c1: " + sensor_c1);
+    console.log("sensor_3a: " + sensor_3a);
 
-    if (command == 'sensor_c2_on') {
-        sensor_c2 = true;
+    if (command == 'sensor_3b_on') {
+        sensor_3b = true;
     }
-    if (command == 'sensor_c2_off') {
-        sensor_c2 = false;
+    if (command == 'sensor_3b_off') {
+        sensor_3b = false;
     }
-    console.log("sensor_c2: " + sensor_c2);
+    console.log("sensor_3b: " + sensor_3b);
 
-    if (command == 'sensor_c3_on') {
-        sensor_c3 = true;
+    if (command == 'sensor_3c_on') {
+        sensor_3c = true;
     }
-    if (command == 'sensor_c3_off') {
-        sensor_c3 = false;
+    if (command == 'sensor_3c_off') {
+        sensor_3c = false;
     }
-    console.log("sensor_c3: " + sensor_c3);
+    console.log("sensor_3c: " + sensor_3c);
 
 
 }

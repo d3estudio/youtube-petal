@@ -43,7 +43,7 @@ select {
 }
 
 .p_one .m_one::after {
-    content: "1";
+    content: "F1";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -51,7 +51,7 @@ select {
     color: #999
 }
 .p_one .m_two::after {
-    content: "2";
+    content: "F2";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -59,7 +59,7 @@ select {
     color: #999
 }
 .p_one .m_three::after {
-    content: "3";
+    content: "B1";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -67,7 +67,7 @@ select {
     color: #999
 }
 .p_one .m_four::after {
-    content: "4";
+    content: "B2";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -76,7 +76,7 @@ select {
 }
 
 .p_two .m_five::after {
-    content: "1";
+    content: "F1";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -84,7 +84,7 @@ select {
     color: #999
 }
 .p_two .m_six::after {
-    content: "2";
+    content: "F2";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -92,7 +92,7 @@ select {
     color: #999
 }
 .p_two .m_seven::after {
-    content: "3";
+    content: "B1";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -100,7 +100,7 @@ select {
     color: #999
 }
 .p_two .m_eight::after {
-    content: "4";
+    content: "B2";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -109,7 +109,7 @@ select {
 }
 
 .p_three .m_nine::after {
-    content: "1";
+    content: "F1";
     position: absolute;
     top: -30px;
     left: 45%;
@@ -117,7 +117,7 @@ select {
     color: #999
 }
 .p_three .m_ten::after {
-    content: "2";
+    content: "F2";
     position: absolute;
     top: -30px;
     left: 35%;
@@ -125,7 +125,7 @@ select {
     color: #999
 }
 .p_three .m_eleven::after {
-    content: "3";
+    content: "B1";
     position: absolute;
     top: -30px;
     left: 35%;
@@ -133,7 +133,7 @@ select {
     color: #999
 }
 .p_three .m_twelve::after {
-    content: "4";
+    content: "B2";
     position: absolute;
     top: -30px;
     left: 35%;
@@ -158,7 +158,7 @@ select {
     top: 30%;
 }
 .As::after {
-    content: "A";
+    content: "1";
     position: absolute;
     top: -60px;
     left: 50%;
@@ -166,7 +166,7 @@ select {
     color: #FFF
 }
 .Bs::after {
-    content: "B";
+    content: "2";
     position: absolute;
     top: -60px;
     left: 50%;
@@ -174,7 +174,7 @@ select {
     color: #FFF
 }
 .Cs::after {
-    content: "C";
+    content: "3";
     position: absolute;
     top: -60px;
     left: 50%;

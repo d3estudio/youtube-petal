@@ -75,7 +75,7 @@ module.exports = function Motor(identification) {
 
             setTimeout(function(){
                 _this.redis.send("SET_LOWER_LIMIT", [_this.name, _send_cmd + ""]);
-            }, 2000);
+            }, 20000);
 
 
         } else if (cmd <= 100 && cmd >= 0) {
