@@ -17,11 +17,11 @@ socket
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == 105) {
-            current_height = current_height - 5;
+            current_height = current_height - 12;
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == -105) {
-            current_height = current_height + 5;
+            current_height = current_height + 12;
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == 110) {

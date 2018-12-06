@@ -387,6 +387,81 @@ var AllMotors = function() {
     };
 }
 
+var AllF1F2B1 = function() {
+
+    this.GO_DOWN = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_2F1", "motor_2F2", "motor_2B1", "motor_3F1", "motor_3F2", "motor_3B1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -101 });
+        });
+    };
+    this.GO_UP = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_2F1", "motor_2F2", "motor_2B1", "motor_3F1", "motor_3F2", "motor_3B1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 101 });
+        });
+    };
+    this.GO_UP_FASTER = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_2F1", "motor_2F2", "motor_2B1", "motor_3F1", "motor_3F2", "motor_3B1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 105 });
+        });
+    };
+    this.GO_DOWN_FASTER = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_2F1", "motor_2F2", "motor_2B1", "motor_3F1", "motor_3F2", "motor_3B1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -105 });
+        });
+    };
+
+}
+
+var AllF1F2 = function() {
+
+    this.GO_DOWN = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_2F1", "motor_2F2", "motor_3F1", "motor_3F2"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -101 });
+        });
+    };
+    this.GO_UP = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_2F1", "motor_2F2", "motor_3F1", "motor_3F2"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 101 });
+        });
+    };
+    this.GO_UP_FASTER = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_2F1", "motor_2F2", "motor_3F1", "motor_3F2"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 105 });
+        });
+    };
+    this.GO_DOWN_FASTER = function() {
+        $.each(["motor_1F1", "motor_1F2", "motor_2F1", "motor_2F2", "motor_3F1", "motor_3F2"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -105 });
+        });
+    };
+
+}
+
+var AllF1 = function() {
+
+    this.GO_DOWN = function() {
+        $.each(["motor_1F1", "motor_2F1", "motor_3F1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -101 });
+        });
+    };
+    this.GO_UP = function() {
+        $.each(["motor_1F1", "motor_2F1", "motor_3F1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 101 });
+        });
+    };
+    this.GO_UP_FASTER = function() {
+        $.each(["motor_1F1", "motor_2F1", "motor_3F1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": 105 });
+        });
+    };
+    this.GO_DOWN_FASTER = function() {
+        $.each(["motor_1F1", "motor_2F1", "motor_3F1"], function(index, value) {
+        socket.emit('animate', { "motor": value, "command": -105 });
+        });
+    };
+
+}
+
 var Unicast = function() {
     this.SEND = function() {
         var goTo;
@@ -484,6 +559,27 @@ createFolder('Calibração - All Motors', new AllMotors(), [
     'CLEAR_LIMITS',
     'SET_MIN',
     'SET_MAX'
+]);
+
+createFolder('Calibração - All F1, F2 e B1', new AllF1F2B1(), [
+    'GO_DOWN',
+    'GO_UP',
+    'GO_DOWN_FASTER',
+    'GO_UP_FASTER'
+]);
+
+createFolder('Calibração - All F1, F2', new AllF1F2(), [
+    'GO_DOWN',
+    'GO_UP',
+    'GO_DOWN_FASTER',
+    'GO_UP_FASTER'
+]);
+
+createFolder('Calibração - All F1', new AllF1(), [
+    'GO_DOWN',
+    'GO_UP',
+    'GO_DOWN_FASTER',
+    'GO_UP_FASTER'
 ]);
 
 createFolder('Calibração - Motor 1 F1', new MotorA1(), [

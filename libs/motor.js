@@ -66,7 +66,7 @@ module.exports = function Motor(identification) {
             _this.setMaxPosition();
             // max command here
             // _send_cmd = 0;
-            _this.redis.send("SET_UPPER_LIMIT", [_this.name, _send_cmd + ""]);
+            _this.redis.send("SET_LOWER_LIMIT", [_this.name, _send_cmd + ""]);
         } else if (cmd == -111) {
             _this.setMinPosition();
             // max command here
@@ -74,10 +74,10 @@ module.exports = function Motor(identification) {
             _this.redis.send("SET_ORIGIN", [_this.name, _send_cmd + ""]);
 
             setTimeout(function(){
-                _this.redis.send("SET_LOWER_LIMIT", [_this.name, _send_cmd + ""]);
+                _this.redis.send("SET_UPPER_LIMIT", [_this.name, _send_cmd + ""]);
             }, 2000);
 
-
+            //TODO - VER PQ 50% Ñ ESTÁ NA METADE DO MIN E MAX
         } else if (cmd <= 100 && cmd >= 0) {
             helper.logger.debug(`[${_this.name}] ${_this.minPosition} ${_this.maxPosition}`);
             var _total = _this.maxPosition - _this.minPosition;
