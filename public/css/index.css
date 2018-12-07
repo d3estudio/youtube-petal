@@ -50,10 +50,26 @@ select {
     font-size: 0.8rem;
     color: #999
 }
+.p_one .m_one::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_one .m_two::after {
     content: "F2";
     position: absolute;
     top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_one .m_two::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
     left: 45%;
     font-size: 0.8rem;
     color: #999
@@ -66,6 +82,14 @@ select {
     font-size: 0.8rem;
     color: #999
 }
+.p_one .m_three::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_one .m_four::after {
     content: "B2";
     position: absolute;
@@ -74,11 +98,26 @@ select {
     font-size: 0.8rem;
     color: #999
 }
-
+.p_one .m_four::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_two .m_five::after {
     content: "F1";
     position: absolute;
     top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_two .m_five::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
     left: 45%;
     font-size: 0.8rem;
     color: #999
@@ -91,10 +130,26 @@ select {
     font-size: 0.8rem;
     color: #999
 }
+.p_two .m_six::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_two .m_seven::after {
     content: "B1";
     position: absolute;
     top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_two .m_seven::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
     left: 45%;
     font-size: 0.8rem;
     color: #999
@@ -107,11 +162,26 @@ select {
     font-size: 0.8rem;
     color: #999
 }
-
+.p_two .m_eight::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_three .m_nine::after {
     content: "F1";
     position: absolute;
     top: -30px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_three .m_nine::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
     left: 45%;
     font-size: 0.8rem;
     color: #999
@@ -124,6 +194,14 @@ select {
     font-size: 0.8rem;
     color: #999
 }
+.p_three .m_ten::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_three .m_eleven::after {
     content: "B1";
     position: absolute;
@@ -132,11 +210,27 @@ select {
     font-size: 0.8rem;
     color: #999
 }
+.p_three .m_eleven::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: 0.8rem;
+    color: #999
+}
 .p_three .m_twelve::after {
     content: "B2";
     position: absolute;
     top: -30px;
     left: 35%;
+    font-size: 0.8rem;
+    color: #999
+}
+.p_three .m_twelve::before {
+    content: attr(data-rotation);
+    position: absolute;
+    top: 10px;
+    left: 45%;
     font-size: 0.8rem;
     color: #999
 }

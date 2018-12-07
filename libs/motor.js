@@ -61,20 +61,20 @@ module.exports = function Motor(identification) {
             _this.command = 0;
             // clear command here
             _send_cmd = 0;
-            _this.redis.send("CLEAR_LIMITS", [_this.name, _send_cmd + ""]);
+            _this.redis.send("CLEAR_LIMITS", [_this.name]);
         } else if (cmd == 111) {
             _this.setMaxPosition();
             // max command here
             // _send_cmd = 0;
-            _this.redis.send("SET_LOWER_LIMIT", [_this.name, _send_cmd + ""]);
+            _this.redis.send("SET_LOWER_LIMIT", [_this.name]);
         } else if (cmd == -111) {
             _this.setMinPosition();
             // max command here
             // _send_cmd = 0;
-            _this.redis.send("SET_ORIGIN", [_this.name, _send_cmd + ""]);
+            _this.redis.send("SET_ORIGIN", [_this.name]);
 
             setTimeout(function(){
-                _this.redis.send("SET_UPPER_LIMIT", [_this.name, _send_cmd + ""]);
+                _this.redis.send("SET_UPPER_LIMIT", [_this.name]);
             }, 2000);
 
             //TODO - VER PQ 50% Ñ ESTÁ NA METADE DO MIN E MAX
