@@ -37,6 +37,29 @@ var Idle_motion = function() {
     this.IDLE_3_OFF = function() {
         socket.emit('idle', 'idle_3_off');
     }
+    this.ALL_IDLE_ON = function() {
+        setTimeout(function(){
+            socket.emit('idle', 'idle_1_on');
+        }, 0);
+        setTimeout(function(){
+            socket.emit('idle', 'idle_2_on');
+        }, 1000);
+        setTimeout(function(){
+            socket.emit('idle', 'idle_3_on');
+        }, 2000);
+    }
+    this.ALL_IDLE_OFF = function() {
+        setTimeout(function(){
+            socket.emit('idle', 'idle_1_off');
+        }, 0);
+        setTimeout(function(){
+            socket.emit('idle', 'idle_2_off');
+        }, 1000);
+        setTimeout(function(){
+            socket.emit('idle', 'idle_3_off');
+        }, 2000);
+    }
+
 }
 
 var Petal_motion = function() {
@@ -76,10 +99,10 @@ var MotorA1 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": -111 });
     };
 }
@@ -100,10 +123,10 @@ var MotorA2 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_1F2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_1F2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_1F2", "command": -111 });
     };
 }
@@ -124,10 +147,10 @@ var MotorA3 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_1B1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_1B1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_1B1", "command": -111 });
     };
 }
@@ -148,10 +171,10 @@ var MotorA4 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_1B2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_1B2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_1B2", "command": -111 });
     };
 }
@@ -172,10 +195,10 @@ var MotorB1 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_2F1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_2F1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_2F1", "command": -111 });
     };
 }
@@ -196,10 +219,10 @@ var MotorB2 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_2F2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_2F2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_2F2", "command": -111 });
     };
 }
@@ -220,10 +243,10 @@ var MotorB3 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_2B1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_2B1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_2B1", "command": -111 });
     };
 }
@@ -244,10 +267,10 @@ var MotorB4 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_2B2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_2B2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_2B2", "command": -111 });
     };
 }
@@ -268,10 +291,10 @@ var MotorC1 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_3F1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_3F1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_3F1", "command": -111 });
     };
 }
@@ -292,10 +315,10 @@ var MotorC2 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_3F2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_3F2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_3F2", "command": -111 });
     };
 }
@@ -316,10 +339,10 @@ var MotorC3 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_3B1", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_3B1", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_3B1", "command": -111 });
     };
 }
@@ -340,10 +363,10 @@ var MotorC4 = function() {
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_3B2", "command": 110 });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         socket.emit('animate', { "motor": "motor_3B2", "command": 111 });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_3B2", "command": -111 });
     };
 }
@@ -370,12 +393,12 @@ var AllMotors = function() {
         socket.emit('animate', { "motor": value, "command": -105 });
         });
     };
-    this.SET_MAX = function() {
+    this.SET_BOTTOM = function() {
         $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 111 });
         });
     };
-    this.SET_MIN = function() {
+    this.SET_TOP = function() {
         $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": -111 });
         });
@@ -539,7 +562,9 @@ createFolder('Motion - Idle', new Idle_motion(), [
     'IDLE_2_ON',
     'IDLE_2_OFF',
     'IDLE_3_ON',
-    'IDLE_3_OFF'
+    'IDLE_3_OFF',
+    'ALL_IDLE_ON',
+    'ALL_IDLE_OFF'
 ]);
 
 createFolder('Motion - Petal', new Petal_motion(), [
@@ -552,154 +577,154 @@ createFolder('Motion - Petal', new Petal_motion(), [
 ]);
 
 createFolder('Calibração - All Motors', new AllMotors(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_DOWN_FASTER',
     'GO_UP_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - All F1, F2 e B1', new AllF1F2B1(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_DOWN_FASTER',
     'GO_UP_FASTER'
 ]);
 
 createFolder('Calibração - All F1, F2', new AllF1F2(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_DOWN_FASTER',
     'GO_UP_FASTER'
 ]);
 
 createFolder('Calibração - All F1', new AllF1(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_DOWN_FASTER',
     'GO_UP_FASTER'
 ]);
 
 createFolder('Calibração - Motor 1 F1', new MotorA1(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 1 F2', new MotorA2(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 1 B1', new MotorA3(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 1 B2', new MotorA4(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 2 F1', new MotorB1(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 2 F2', new MotorB2(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 2 B1', new MotorB3(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 2 B2', new MotorB4(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 3 F1', new MotorC1(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 3 F2', new MotorC2(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 3 B1', new MotorC3(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 createFolder('Calibração - Motor 3 B2', new MotorC4(), [
-    'GO_DOWN',
     'GO_UP',
+    'GO_DOWN',
     'GO_UP_FASTER',
     'GO_DOWN_FASTER',
     'CLEAR_LIMITS',
-    'SET_MIN',
-    'SET_MAX'
+    'SET_TOP',
+    'SET_BOTTOM'
 ]);
 
 var container = document.getElementById('left-menu');

@@ -34,23 +34,23 @@ module.exports = function Motor(identification) {
     _this.sendCommand = (cmd) => {
 
         if (cmd == 101) {
-            _this.currentPosition = _this.currentPosition - 360; //TODO setar passo mínimo
+            _this.currentPosition = _this.currentPosition - 180; //TODO setar passo mínimo
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, +_send_cmd + ""]);
 
         } else if (cmd == -101) {
-            _this.currentPosition = _this.currentPosition + 360; //TODO setar passo mínimo
+            _this.currentPosition = _this.currentPosition + 180; //TODO setar passo mínimo
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == 105) {
-            _this.currentPosition = _this.currentPosition - 1080; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition - 360; //TODO setar passo rápido
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == -105) {
-            _this.currentPosition = _this.currentPosition + 1080; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition + 360; //TODO setar passo rápido
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
@@ -65,16 +65,16 @@ module.exports = function Motor(identification) {
         } else if (cmd == 111) {
             _this.setMaxPosition();
             // max command here
-            // _send_cmd = 0;
-            _this.redis.send("SET_LOWER_LIMIT", [_this.name]);
+            _this.redis.send("SET_UPPER_LIMIT", [_this.name]);
         } else if (cmd == -111) {
             _this.setMinPosition();
+
             // max command here
-            // _send_cmd = 0;
+            _send_cmd = 0;
             _this.redis.send("SET_ORIGIN", [_this.name]);
 
             setTimeout(function(){
-                _this.redis.send("SET_UPPER_LIMIT", [_this.name]);
+                _this.redis.send("SET_LOWER_LIMIT", [_this.name]);
             }, 2000);
 
             //TODO - VER PQ 50% Ñ ESTÁ NA METADE DO MIN E MAX

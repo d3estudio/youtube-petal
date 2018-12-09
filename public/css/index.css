@@ -12,6 +12,17 @@ select {
     border: 1px solid #000000;
 }
 
+.content_menu {
+    overflow: scroll;
+    height: 100vh;
+    position: absolute;
+    z-index: 9999;
+    margin-left: 15px;
+    top: 0;
+    left: 0;
+    width: 260px;
+}
+
 #left-menu {
     position: absolute;
     z-index: 9999;
