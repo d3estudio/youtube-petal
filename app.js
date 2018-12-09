@@ -48,6 +48,9 @@ serverSocket.on('connection', (clientSocket) => {
         .on('exec_front', (command) => {
             serverSocket.emit('exec_web', command);
         })
+        .on('allmotions', (command) => {
+            serverSocket.emit('exec_allmotions', command);
+        })
         .on('sensor', (command) => {
             serverSocket.emit('exec_sensor', command);
         })

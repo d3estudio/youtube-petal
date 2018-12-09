@@ -485,6 +485,16 @@ var AllF1 = function() {
 
 }
 
+var All_motions = function() {
+
+    this.PLAY = function() {
+        socket.emit('allmotions', 'allmotions_on');
+    };
+    this.STOP = function() {
+        socket.emit('allmotions', 'allmotions_off');
+    };
+}
+
 var Unicast = function() {
     this.SEND = function() {
         var goTo;
@@ -555,6 +565,11 @@ createFolder('Teste - Unicast', new Unicast(), ['SEND'], {
         folder.add(prop, 'command', 0, 100);
     }
 });
+
+createFolder('All motions', new All_motions(), [
+    'PLAY',
+    'STOP'
+]);
 
 createFolder('Motion - Idle', new Idle_motion(), [
     'IDLE_1_ON',
