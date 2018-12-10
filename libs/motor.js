@@ -109,7 +109,7 @@ module.exports = function Motor(identification) {
 
         // _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd]);
 
-        helper.logger.debug(`[${_this.name}] COMMAND ${_this.command}`);
+        // helper.logger.debug(`[${_this.name}] COMMAND ${_this.command}`);
 
     }
 }
