@@ -54,6 +54,26 @@ module.exports = function Motor(identification) {
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
+        } else if (cmd == 106) {
+            _this.currentPosition = _this.currentPosition - 1440; //TODO setar passo rápido
+            //convert command here
+            _send_cmd = _this.currentPosition;
+            _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
+        } else if (cmd == -106) {
+            _this.currentPosition = _this.currentPosition + 1440; //TODO setar passo rápido
+            //convert command here
+            _send_cmd = _this.currentPosition;
+            _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
+        } else if (cmd == 107) {
+            _this.currentPosition = _this.currentPosition - 1800; //TODO setar passo rápido
+            //convert command here
+            _send_cmd = _this.currentPosition;
+            _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
+        } else if (cmd == -107) {
+            _this.currentPosition = _this.currentPosition + 1800; //TODO setar passo rápido
+            //convert command here
+            _send_cmd = _this.currentPosition;
+            _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == 110) {
             _this.currentPosition = 0;
             _this.minPosition = 0;

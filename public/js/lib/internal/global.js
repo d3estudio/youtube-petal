@@ -11,27 +11,27 @@ socket
 
 
         if (cmd == 101) {
-            current_height = current_height - 1;
-            count_rotation = count_rotation - 1;
+            current_height = current_height - 0.5;
+            count_rotation = count_rotation - 0.5;
             current_motor.data('rotation', count_rotation);
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == -101) {
-            current_height = current_height + 1;
-            count_rotation = count_rotation + 1;
+            current_height = current_height + 0.5;
+            count_rotation = count_rotation + 0.5;
             current_motor.data('rotation', count_rotation);
 
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == 105) {
-            current_height = current_height - 12;
-            count_rotation = count_rotation - 3;
+            current_height = current_height - 4;
+            count_rotation = count_rotation - 1;
             current_motor.data('rotation', count_rotation);
             //convert command here
             _send_cmd = current_height;
         } else if (cmd == -105) {
-            current_height = current_height + 12;
-            count_rotation = count_rotation + 3;
+            current_height = current_height + 4;
+            count_rotation = count_rotation + 1;
             current_motor.data('rotation', count_rotation);
             //convert command here
             _send_cmd = current_height;

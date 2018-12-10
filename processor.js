@@ -38,7 +38,7 @@ var petal = function(petal) {
     // console.log(petal);
 
     ///DESCE COM DELAY
-    //TODO delay pra petala
+    //PARAMETRO delay pra petala
 
     if (petal == 'petal_1_down') {
 
@@ -242,14 +242,12 @@ function run_idle_1(){
                 motors[petal_1[1]].sendCommand(0);
             }, 50);
             setTimeout(function(){
-                motors[petal_1[1]].sendCommand(0);
+                motors[petal_1[2]].sendCommand(82);
             }, 100);
             setTimeout(function(){
-                motors[petal_1[1]].sendCommand(0);
+                motors[petal_1[3]].sendCommand(0);
             }, 150);
 
-            motors[petal_1[2]].sendCommand(82);
-            motors[petal_1[3]].sendCommand(0);
 
             socket.emit("exec_front", { "motor": petal_1[0], "command": 30 });
             setTimeout(function(){
@@ -268,14 +266,26 @@ function run_idle_1(){
 
                 if (idle_petal_1 && idle_petal_1_last) {
                     motors[petal_1[0]].sendCommand(0);
-                    motors[petal_1[1]].sendCommand(41);
-                    motors[petal_1[2]].sendCommand(0);
-                    motors[petal_1[3]].sendCommand(100);
+                    setTimeout(function(){
+                        motors[petal_1[1]].sendCommand(41);
+                    }, 50);
+                    setTimeout(function(){
+                        motors[petal_1[2]].sendCommand(0);
+                    }, 100);
+                    setTimeout(function(){
+                        motors[petal_1[3]].sendCommand(100);
+                    }, 150);
 
                     socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_1[1], "command": 41 });
-                    socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
+                    setTimeout(function(){
+                        socket.emit("exec_front", { "motor": petal_1[1], "command": 41 });
+                    }, 50);
+                    setTimeout(function(){
+                        socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
+                    }, 100);
+                    setTimeout(function(){
+                        socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
+                    }, 150);
 
                     idle_petal_1_last = false;
 
@@ -378,10 +388,12 @@ function run_idle_3(){
 }
 
 function idle(command) {
-    //TODO delay de mensagem
+    //PARAMETRO delay de mensagem
+    var delayIdle = 2500
+
     if (command == 'idle_1_on') {
         if (!idle_petal_1) {
-            setTimeout(run_idle_1, 2500);
+            setTimeout(run_idle_1, delayIdle);
         }
         idle_petal_1 = true;
     }
@@ -399,12 +411,12 @@ function idle(command) {
             socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, 2500);
+        }, delayIdle);
 
     }
     if (command == 'idle_2_on') {
         if (!idle_petal_2) {
-            setTimeout(run_idle_2, 2500);
+            setTimeout(run_idle_2, delayIdle);
         }
         idle_petal_2 = true;
     }
@@ -422,11 +434,11 @@ function idle(command) {
             socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, 2500);
+        }, delayIdle);
     }
     if (command == 'idle_3_on') {
         if (!idle_petal_3) {
-            setTimeout(run_idle_3, 2500);
+            setTimeout(run_idle_3, delayIdle);
         }
         idle_petal_3 = true;
     }
@@ -444,7 +456,7 @@ function idle(command) {
             socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
             socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, 2500);
+        }, delayIdle);
     }
 
 }
