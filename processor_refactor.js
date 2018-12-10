@@ -641,6 +641,11 @@ function allmotions(command) {
         console.log('ALL MOTIONS: ', allmotions_on);
     }
     if (command == 'allmotions_off') {
+        // TODO TURN ALL THE IDLES HERE
+        clearInterval(intervalIdle1);
+        intervalIdle1 = false;
+
+
         allmotions_on = false;
         console.log('ALL MOTIONS: ', allmotions_on);
     }
