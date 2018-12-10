@@ -388,7 +388,7 @@ var MotorB4 = function() {
         socket.emit('animate', { "motor": "motor_2B2", "command": 111 });
     };
     this.SET_ORIGIN = function() {
-      socket.emit('animate', { "motor": "motor_2B2.", "command": 150 });
+      socket.emit('animate', { "motor": "motor_2B2", "command": 150 });
     }
     this.SET_TOP = function() {
         socket.emit('animate', { "motor": "motor_2B2", "command": -111 });

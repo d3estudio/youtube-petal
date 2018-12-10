@@ -4,8 +4,8 @@ var helper = require('../libs/shared');
 
 var RedisClient = function() {
     // this.serverUrl = 'numenor.hackeneering.com';
-    // this.serverUrl = undefined; // ioredis defaults to 127.0.0.1:6379
-    this.serverUrl = '10.10.8.2';
+    this.serverUrl = undefined; // ioredis defaults to 127.0.0.1:6379
+    // this.serverUrl = '10.10.8.2';
 
     //TODO
     //numenor.hackeneering.com
