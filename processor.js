@@ -228,74 +228,72 @@ var sensor_3c = false;
 
 var allmotions_on = false;
 
+var idle_1_running = false;
 
 function run_idle_1(){
-    console.log('idle_petal: ' + idle_petal_1);
-    console.log('idle_petal_1_last: ' + idle_petal_1_last);
+    
+    if (idle_1_running || !allmotions_on) {
+        return false;
+    }
 
-    if (idle_petal_1 && !idle_petal_1_last) {
+    idle_1_running = true;
+
+    setTimeout(function(){
+
+        motors[petal_1[0]].sendCommand(30);
+        setTimeout(function(){
+            motors[petal_1[1]].sendCommand(0);
+        }, 50);
+        setTimeout(function(){
+            motors[petal_1[2]].sendCommand(82);
+        }, 100);
+        setTimeout(function(){
+            motors[petal_1[3]].sendCommand(0);
+        }, 150);
+
+
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 30 });
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
+        }, 50);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_1[2], "command": 82 });
+        }, 100);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
+        }, 150);
 
         setTimeout(function(){
 
-            motors[petal_1[0]].sendCommand(30);
+            motors[petal_1[0]].sendCommand(0);
             setTimeout(function(){
-                motors[petal_1[1]].sendCommand(0);
+                motors[petal_1[1]].sendCommand(41);
             }, 50);
             setTimeout(function(){
-                motors[petal_1[2]].sendCommand(82);
+                motors[petal_1[2]].sendCommand(0);
             }, 100);
             setTimeout(function(){
-                motors[petal_1[3]].sendCommand(0);
+                motors[petal_1[3]].sendCommand(100);
             }, 150);
 
-
-            socket.emit("exec_front", { "motor": petal_1[0], "command": 30 });
+            socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
             setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_1[1], "command": 41 });
             }, 50);
             setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[2], "command": 82 });
+                socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
             }, 100);
             setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
+                socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
             }, 150);
-
-            idle_petal_1_last = true;
-
-            setTimeout(function(){
-
-                if (idle_petal_1 && idle_petal_1_last) {
-                    motors[petal_1[0]].sendCommand(0);
-                    setTimeout(function(){
-                        motors[petal_1[1]].sendCommand(41);
-                    }, 50);
-                    setTimeout(function(){
-                        motors[petal_1[2]].sendCommand(0);
-                    }, 100);
-                    setTimeout(function(){
-                        motors[petal_1[3]].sendCommand(100);
-                    }, 150);
-
-                    socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-                    setTimeout(function(){
-                        socket.emit("exec_front", { "motor": petal_1[1], "command": 41 });
-                    }, 50);
-                    setTimeout(function(){
-                        socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-                    }, 100);
-                    setTimeout(function(){
-                        socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
-                    }, 150);
-
-                    idle_petal_1_last = false;
-
-                    setTimeout(run_idle_1, 2500);
-                }
-
+            
+            setTimeout(function() {
+                idle_1_running = false;
+                run_idle_1();
             }, 2500);
-        }, 2500);
 
-    }
+        }, 2500);
+    }, 2500);
 }
 
 function run_idle_2(){
@@ -465,52 +463,21 @@ function activatedSensorA() {
     //TODO - Fazer o idle voltar depois da pétala subir
 
     if (sensor_1a && sensor_1b && sensor_1c) {
-        if (!idle_petal_1) {
-            socket.emit('petal', 'petal_1_down');
-            // idle_petal_1 = true;
-            one_sensor_active_1 = false;
-        }
-
+        idle_1_running = false;
+        socket.emit('petal', 'petal_1_down');
         setTimeout(activatedSensorA, 1000);
 
     } else if (sensor_1a || sensor_1b || sensor_1c) {
+        idle_1_running = false;
+        socket.emit('petal', 'petal_1_up');
+        setTimeout(activatedSensorA, 1000);
 
-        if (idle_petal_1) {
-            socket.emit('petal', 'petal_1_up');
-            idle_petal_1 = false;
-        } else if (!one_sensor_active_1) {
-            idle_petal_1 = false;
-            idle_petal_1_last = true;
-
-            setTimeout(function(){
-                motors[petal_1[0]].sendCommand(0);
-                motors[petal_1[1]].sendCommand(0);
-                motors[petal_1[2]].sendCommand(0);
-                motors[petal_1[3]].sendCommand(0);
-
-                socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-                socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
-                socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-                socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-            }, 2500);
-
-            one_sensor_active_1 = true;
-        }
-        setTimeout(function(){
-            activatedSensorA();
-        }, 1000);
     } else if (!sensor_1a && !sensor_1b && !sensor_1c) {
+        idle_1_running = true;
         setTimeout(function(){
-            if (allmotions_on) {
-                idle_petal_1 = true;
-                idle_petal_1_last = false;
-                run_idle_1();
-            }
+            run_idle_1();
             setTimeout(activatedSensorA, 1000);
         }, 1000);
-    } else {
-        one_sensor_active_1 = false;
-        setTimeout(activatedSensorA, 1000);
     }
 }
 
