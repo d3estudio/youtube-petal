@@ -83,7 +83,7 @@ var Petal_motion = function() {
     };
 }
 
-var MotorA1 = function() {
+var MotorA1 = function() { //
     this.GO_UP_180 = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": 101 });
     };
@@ -108,6 +108,11 @@ var MotorA1 = function() {
     this.GO_DOWN_5X = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": -107 });
     };
+
+    this.GO_DOWN_46800 = function() {
+        socket.emit('animate', { "motor": "motor_1F1", "command": 46800 });
+    };
+
     this.CLEAR_LIMITS = function() {
         socket.emit('animate', { "motor": "motor_1F1", "command": 110 });
     };
@@ -122,7 +127,7 @@ var MotorA1 = function() {
     };
 }
 
-var MotorA2 = function() {
+var MotorA2 = function() { //
     this.GO_UP_180 = function() {
         socket.emit('animate', { "motor": "motor_1F2", "command": 101 });
     };
@@ -730,6 +735,31 @@ var AllF1 = function() {
 
 }
 
+var CalibrateALL = function() {
+
+    this.CALIBRATE_PETAL_1 = function() {
+        socket.emit('animate', { "motor": "motor_1F1", "command": 360*5*26 + "" }); //46800
+        socket.emit('animate', { "motor": "motor_1F2", "command": 360*5*19 + "" }); //34200
+        socket.emit('animate', { "motor": "motor_1B1", "command": 360*5*6 + "" }); //10800
+        socket.emit('animate', { "motor": "motor_1B2", "command": 360*5*3 + "" }); //5400
+    };
+
+    this.CALIBRATE_PETAL_2 = function() {
+        socket.emit('animate', { "motor": "motor_2F1", "command": 360*5*24 + "" }); //43200
+        socket.emit('animate', { "motor": "motor_2F2", "command": 360*5*15 + "" }); //27000
+        socket.emit('animate', { "motor": "motor_2B1", "command": 360*4*8 + "" }); //11520
+        socket.emit('animate', { "motor": "motor_2B2", "command": 360*4*6 + "" }); //8640
+    };
+
+    this.CALIBRATE_PETAL_3 = function() {
+        socket.emit('animate', { "motor": "motor_3F1", "command": 360*5*23 + "" }); //41400
+        socket.emit('animate', { "motor": "motor_3F2", "command": 360*5*16 + "" }); //28800
+        socket.emit('animate', { "motor": "motor_3B1", "command": 360*5*8 + "" }); //14400
+        socket.emit('animate', { "motor": "motor_3B2", "command": 360*5*6 + "" }); //10800
+    };
+
+}
+
 var All_motions = function() {
 
     this.PLAY = function() {
@@ -836,6 +866,12 @@ createFolder('Motion - Petal', new Petal_motion(), [
     'PETAL_3_DOWN'
 ]);
 
+createFolder('Calibração Automática', new CalibrateALL(), [
+    'CALIBRATE_PETAL_1',
+    'CALIBRATE_PETAL_2',
+    'CALIBRATE_PETAL_3'
+]);
+
 createFolder('Calibração - All Motors', new AllMotors(), [
     'GO_UP_180',
     'GO_DOWN_180',
@@ -889,6 +925,7 @@ createFolder('Calibração - Motor 1 F1', new MotorA1(), [
     'GO_DOWN_4X',
     'GO_UP_5X',
     'GO_DOWN_5X',
+    'GO_DOWN_46800',
     'CLEAR_LIMITS',
     'SET_ORIGIN',
     'SET_TOP',
