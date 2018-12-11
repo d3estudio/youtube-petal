@@ -231,10 +231,9 @@ var allmotions_on = false;
 var idle_1_running = false;
 
 function run_idle_1(){
-    
+
     console.log("LOOP IDLE 1");
 
-    // TODO PUT THIS ON ALL THE ANIMATION FUNCTIONS TO BLOCK EVERYTHING
     if (!allmotions_on) {
         return false;
     }
@@ -292,95 +291,134 @@ function run_idle_1(){
     }, 2500);
 }
 
-// TODO replicate the idle1 here
 function run_idle_2(){
 
-    if (idle_petal_2 && !idle_petal_2_last) {
+    console.log("LOOP IDLE 2");
 
-        setTimeout(function(){
-            motors[petal_2[0]].sendCommand(30);
-            motors[petal_2[1]].sendCommand(0);
-            motors[petal_2[2]].sendCommand(82);
-            motors[petal_2[3]].sendCommand(0);
-
-            socket.emit("exec_front", { "motor": petal_2[0], "command": 30 });
-            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_2[2], "command": 82 });
-            socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
-
-            idle_petal_2_last = true;
-
-            setTimeout(function(){
-
-                if (idle_petal_2 && idle_petal_2_last) {
-                    motors[petal_2[0]].sendCommand(0);
-                    motors[petal_2[1]].sendCommand(41);
-                    motors[petal_2[2]].sendCommand(0);
-                    motors[petal_2[3]].sendCommand(100);
-
-                    socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_2[1], "command": 41 });
-                    socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_2[3], "command": 100 });
-
-                    idle_petal_2_last = false;
-
-                    setTimeout(run_idle_2, 2500);
-                }
-
-            }, 2500);
-        }, 2500);
-
+    if (!allmotions_on) {
+        return false;
     }
 
+    setTimeout(function(){
+
+        motors[petal_2[0]].sendCommand(30);
+        setTimeout(function(){
+            motors[petal_2[1]].sendCommand(0);
+        }, 50);
+        setTimeout(function(){
+            motors[petal_2[2]].sendCommand(82);
+        }, 100);
+        setTimeout(function(){
+            motors[petal_2[3]].sendCommand(0);
+        }, 150);
+
+
+        socket.emit("exec_front", { "motor": petal_2[0], "command": 30 });
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
+        }, 50);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_2[2], "command": 82 });
+        }, 100);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
+        }, 150);
+
+        setTimeout(function(){
+
+            motors[petal_2[0]].sendCommand(0);
+            setTimeout(function(){
+                motors[petal_2[1]].sendCommand(41);
+            }, 50);
+            setTimeout(function(){
+                motors[petal_2[2]].sendCommand(0);
+            }, 100);
+            setTimeout(function(){
+                motors[petal_2[3]].sendCommand(100);
+            }, 150);
+
+            socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_2[1], "command": 41 });
+            }, 50);
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
+            }, 100);
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_2[3], "command": 100 });
+            }, 150);
+
+        }, 2500);
+    }, 2500);
 }
 
-// TODO replicate the idle1 here
 function run_idle_3(){
 
+    console.log("LOOP IDLE 2");
 
-    if (idle_petal_3 && !idle_petal_3_last) {
-
-        setTimeout(function(){
-            motors[petal_3[0]].sendCommand(30);
-            motors[petal_3[1]].sendCommand(0);
-            motors[petal_3[2]].sendCommand(82);
-            motors[petal_3[3]].sendCommand(0);
-
-            socket.emit("exec_front", { "motor": petal_3[0], "command": 30 });
-            socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_3[2], "command": 82 });
-            socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
-
-            idle_petal_3_last = true;
-
-            setTimeout(function(){
-
-                if (idle_petal_3 && idle_petal_3_last) {
-                    motors[petal_3[0]].sendCommand(0);
-                    motors[petal_3[1]].sendCommand(41);
-                    motors[petal_3[2]].sendCommand(0);
-                    motors[petal_3[3]].sendCommand(100);
-
-                    socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_3[1], "command": 41 });
-                    socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
-                    socket.emit("exec_front", { "motor": petal_3[3], "command": 100 });
-
-                    idle_petal_3_last = false;
-
-                    setTimeout(run_idle_3, 2500);
-                }
-
-            }, 2500);
-        }, 2500);
-
+    if (!allmotions_on) {
+        return false;
     }
 
+    setTimeout(function(){
+
+        motors[petal_3[0]].sendCommand(30);
+        setTimeout(function(){
+            motors[petal_3[1]].sendCommand(0);
+        }, 50);
+        setTimeout(function(){
+            motors[petal_3[2]].sendCommand(82);
+        }, 100);
+        setTimeout(function(){
+            motors[petal_3[3]].sendCommand(0);
+        }, 150);
+
+
+        socket.emit("exec_front", { "motor": petal_3[0], "command": 30 });
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
+        }, 50);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_3[2], "command": 82 });
+        }, 100);
+        setTimeout(function(){
+            socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
+        }, 150);
+
+        setTimeout(function(){
+
+            motors[petal_3[0]].sendCommand(0);
+            setTimeout(function(){
+                motors[petal_3[1]].sendCommand(41);
+            }, 50);
+            setTimeout(function(){
+                motors[petal_3[2]].sendCommand(0);
+            }, 100);
+            setTimeout(function(){
+                motors[petal_3[3]].sendCommand(100);
+            }, 150);
+
+            socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_3[1], "command": 41 });
+            }, 50);
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
+            }, 100);
+            setTimeout(function(){
+                socket.emit("exec_front", { "motor": petal_3[3], "command": 100 });
+            }, 150);
+
+        }, 2500);
+    }, 2500);
 }
+
 
 // control the loop
 var intervalIdle1 = false;
+var intervalIdle2 = false;
+var intervalIdle3 = false;
+
 
 var delayIdle = 5000 // 5000 is the total time of a idle1 loop + some "gordurinha"
 
@@ -390,7 +428,7 @@ function idle(command) {
 
     if (command == 'idle_1_on' && allmotions_on) {
         // start a loop with idle_1
-        intervalIdle1 = setInterval(run_idle_1, delayIdle); 
+        intervalIdle1 = setInterval(run_idle_1, delayIdle);
     }
     if (command == 'idle_1_off') {
         // stop the loop with idle1
@@ -410,63 +448,58 @@ function idle(command) {
 
     }
 
-
-
-
-
-    // TODO replicate the above for other petals
-    if (command == 'idle_2_on') {
-        if (!idle_petal_2) {
-            setTimeout(run_idle_2, delayIdle);
-        }
-        idle_petal_2 = true;
+    if (command == 'idle_2_on' && allmotions_on) {
+        // start a loop with idle_2
+        intervalIdle2 = setInterval(run_idle_2, delayIdle);
     }
     if (command == 'idle_2_off') {
-        idle_petal_2 = false;
-        idle_petal_2_last = false;
-
+        // stop the loop with idle1
+        clearInterval(intervalIdle2);
+        intervalIdle2 = false;
         setTimeout(function(){
-            motors[petal_1[0]].sendCommand(0);
-            motors[petal_1[1]].sendCommand(0);
-            motors[petal_1[2]].sendCommand(0);
-            motors[petal_1[3]].sendCommand(0);
+            motors[petal_2[0]].sendCommand(0);
+            motors[petal_2[1]].sendCommand(0);
+            motors[petal_2[2]].sendCommand(0);
+            motors[petal_2[3]].sendCommand(0);
 
-            socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, delayIdle);
+            socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
+        }, delayIdle); // 5000 is the total time of a idle1 loop + some "gordurinha"
+
     }
-    if (command == 'idle_3_on') {
-        if (!idle_petal_3) {
-            setTimeout(run_idle_3, delayIdle);
-        }
-        idle_petal_3 = true;
+
+    if (command == 'idle_3_on' && allmotions_on) {
+        // start a loop with idle_2
+        intervalIdle3 = setInterval(run_idle_3, delayIdle);
     }
     if (command == 'idle_3_off') {
-        idle_petal_3 = false;
-        idle_petal_3_last = false;
-
+        // stop the loop with idle1
+        clearInterval(intervalIdle3);
+        intervalIdle3 = false;
         setTimeout(function(){
-            motors[petal_1[0]].sendCommand(0);
-            motors[petal_1[1]].sendCommand(0);
-            motors[petal_1[2]].sendCommand(0);
-            motors[petal_1[3]].sendCommand(0);
+            motors[petal_3[0]].sendCommand(0);
+            motors[petal_3[1]].sendCommand(0);
+            motors[petal_3[2]].sendCommand(0);
+            motors[petal_3[3]].sendCommand(0);
 
-            socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-            socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, delayIdle);
+            socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
+        }, delayIdle); // 5000 is the total time of a idle1 loop + some "gordurinha"
+
     }
 
 }
 
 var activateTimeoutSensorA = false;
+var activateTimeoutSensorB = false;
+var activateTimeoutSensorC = false;
 
 // sensor loop functions
 function activatedSensorA() {
-    //TODO - Fazer o idle voltar depois da pétala subir
     console.log("LOOP SENSOR A", sensor_1a, sensor_1b, sensor_1c);
     clearInterval(intervalIdle1);
     intervalIdle1 = false;
@@ -486,69 +519,46 @@ function activatedSensorA() {
         intervalIdle1 = setInterval(run_idle_1, delayIdle);
     }
 }
-// sensor loop functions
+
 function activatedSensorB() {
+    console.log("LOOP SENSOR B", sensor_2a, sensor_2b, sensor_2c);
+    clearInterval(intervalIdle2);
+    intervalIdle2 = false;
 
     if (sensor_2a && sensor_2b && sensor_2c) {
-
-        setTimeout(function(){
+        clearTimeout(activateTimeoutSensorB);
+        activateTimeoutSensorB = setTimeout(function() {
             socket.emit('petal', 'petal_2_down');
-
-        },1000);
-
-
-    } else if (sensor_2a || sensor_2b || sensor_2c) {
-        idle_petal_2 = false;
-
-        motors[petal_2[0]].sendCommand(0);
-        motors[petal_2[1]].sendCommand(0);
-        motors[petal_2[2]].sendCommand(0);
-        motors[petal_2[3]].sendCommand(0);
-
-        socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
-
-        setTimeout(function(){
-            activatedSensorB();
         }, 1000);
-    } else {
-        setTimeout(activatedSensorB, 100);
-    }
+    } else if (sensor_2a || sensor_2b || sensor_2c) {
+        clearTimeout(activateTimeoutSensorB);
+        activateTimeoutSensorB = setTimeout(function() {
+            socket.emit('petal', 'petal_2_up');
+        }, delayIdle);
 
+    } else if (!sensor_2a && !sensor_2b && !sensor_2c) {
+        intervalIdle2 = setInterval(run_idle_2, delayIdle);
+    }
 }
-// sensor loop functions
+
 function activatedSensorC() {
+    console.log("LOOP SENSOR C", sensor_3a, sensor_3b, sensor_3c);
+    clearInterval(intervalIdle3);
+    intervalIdle3 = false;
 
     if (sensor_3a && sensor_3b && sensor_3c) {
-
-        setTimeout(function(){
+        clearTimeout(activateTimeoutSensorC);
+        activateTimeoutSensorC = setTimeout(function() {
             socket.emit('petal', 'petal_3_down');
-
-        },1000);
-
-
-    } else if (sensor_3a || sensor_3b || sensor_3c) {
-        idle_petal_3 = false;
-
-
-        motors[petal_3[0]].sendCommand(0);
-        motors[petal_3[1]].sendCommand(0);
-        motors[petal_3[2]].sendCommand(0);
-        motors[petal_3[3]].sendCommand(0);
-
-        socket.emit("exec_front", { "motor": petal_3[0], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_3[1], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_3[2], "command": 0 });
-        socket.emit("exec_front", { "motor": petal_3[3], "command": 0 });
-
-        setTimeout(function(){
-            activatedSensorC();
-
         }, 1000);
-    } else {
-        setTimeout(activatedSensorC, 100);
+    } else if (sensor_3a || sensor_3b || sensor_3c) {
+        clearTimeout(activateTimeoutSensorC);
+        activateTimeoutSensorC = setTimeout(function() {
+            socket.emit('petal', 'petal_3_up');
+        }, delayIdle);
+
+    } else if (!sensor_3a && !sensor_3b && !sensor_3c) {
+        intervalIdle3 = setInterval(run_idle_3, delayIdle);
     }
 }
 
@@ -587,47 +597,59 @@ function sensor(command) {
         activatedSensorA();
     }
 
-    // TODO to the same as above for all sensors
+
     if (command == 'sensor_2a_on') {
         sensor_2a = true;
+        activatedSensorB();
     }
     if (command == 'sensor_2a_off') {
         sensor_2a = false;
+        activatedSensorB();
     }
 
     if (command == 'sensor_2b_on') {
         sensor_2b = true;
+        activatedSensorB();
     }
     if (command == 'sensor_2b_off') {
         sensor_2b = false;
+        activatedSensorB();
     }
 
     if (command == 'sensor_2c_on') {
         sensor_2c = true;
+        activatedSensorB();
     }
     if (command == 'sensor_2c_off') {
         sensor_2c = false;
+        activatedSensorB();
     }
 
     if (command == 'sensor_3a_on') {
         sensor_3a = true;
+        activatedSensorC();
     }
     if (command == 'sensor_3a_off') {
         sensor_3a = false;
+        activatedSensorC();
     }
 
     if (command == 'sensor_3b_on') {
         sensor_3b = true;
+        activatedSensorC();
     }
     if (command == 'sensor_3b_off') {
         sensor_3b = false;
+        activatedSensorC();
     }
 
     if (command == 'sensor_3c_on') {
         sensor_3c = true;
+        activatedSensorC();
     }
     if (command == 'sensor_3c_off') {
         sensor_3c = false;
+        activatedSensorC();
     }
 
 
@@ -641,10 +663,12 @@ function allmotions(command) {
         console.log('ALL MOTIONS: ', allmotions_on);
     }
     if (command == 'allmotions_off') {
-        // TODO TURN ALL THE IDLES HERE
         clearInterval(intervalIdle1);
         intervalIdle1 = false;
-
+        clearInterval(intervalIdle2);
+        intervalIdle2 = false;
+        clearInterval(intervalIdle3);
+        intervalIdle3 = false;
 
         allmotions_on = false;
         console.log('ALL MOTIONS: ', allmotions_on);

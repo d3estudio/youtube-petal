@@ -55,22 +55,22 @@ module.exports = function Motor(identification) {
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == 106) {
-            _this.currentPosition = _this.currentPosition - 1440; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition - 1440; //TODO setar passo redutor X4
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == -106) {
-            _this.currentPosition = _this.currentPosition + 1440; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition + 1440; //TODO setar passo redutor X4
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == 107) {
-            _this.currentPosition = _this.currentPosition - 1800; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition - 1800; //TODO setar passo redutor X5
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
         } else if (cmd == -107) {
-            _this.currentPosition = _this.currentPosition + 1800; //TODO setar passo rápido
+            _this.currentPosition = _this.currentPosition + 1800; //TODO setar passo redutor X5
             //convert command here
             _send_cmd = _this.currentPosition;
             _this.redis.send("GOTO_ANGLE", [_this.name, _send_cmd + ""]);
@@ -94,7 +94,6 @@ module.exports = function Motor(identification) {
             _this.setMinPosition();
             // max command here
             _this.redis.send("SET_LOWER_LIMIT", [_this.name]);
-            //TODO - VER PQ 50% Ñ ESTÁ NA METADE DO MIN E MAX
         } else if (cmd <= 100 && cmd >= 0) {
             helper.logger.debug(`[${_this.name}] ${_this.minPosition} ${_this.maxPosition}`);
             var _total = _this.maxPosition - _this.minPosition;

@@ -231,7 +231,7 @@ var allmotions_on = false;
 var idle_1_running = false;
 
 function run_idle_1(){
-    
+
     if (idle_1_running || !allmotions_on) {
         return false;
     }
@@ -286,7 +286,7 @@ function run_idle_1(){
             setTimeout(function(){
                 socket.emit("exec_front", { "motor": petal_1[3], "command": 100 });
             }, 150);
-            
+
             setTimeout(function() {
                 idle_1_running = false;
                 run_idle_1();
@@ -460,8 +460,6 @@ function idle(command) {
 }
 
 function activatedSensorA() {
-    //TODO - Fazer o idle voltar depois da pétala subir
-
     if (sensor_1a && sensor_1b && sensor_1c) {
         idle_1_running = false;
         socket.emit('petal', 'petal_1_down');
