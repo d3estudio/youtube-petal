@@ -14,6 +14,8 @@ var socket = ioc.connect(`http://${settings.SOCKET_IP}:${settings.SOCKET_PORT}`)
 //     sq: 1
 // }
 
+var sensors = {};
+
 listenClient.subscribe('colocar_novo_nome');
 listenClient.on('message', function(channel, message) {
     try {
@@ -29,9 +31,18 @@ listenClient.on('message', function(channel, message) {
                 action = "_on";
             }
         }
-
+        
         action = laser + action;
-        socket.emit("sensor", action);
+
+        if (laser in sensors) {
+            if (sensors[laser] != action) {
+                socket.emit("sensor", action);
+                sensors[laser] = action;
+            }
+        } else {
+            socket.emit("sensor", action);
+            sensors[laser] = action;
+        }
 
     } catch(ex) {
         console.debug(`[RedisClient] Error processing incoming message: ${ex.message}`);
