@@ -14,16 +14,16 @@ var Redis = require('./libs/redis'),
 var motors = {
     "motor_1F1": new Motor("268500993"),
     "motor_1F2": new Motor("268500994"),
-    "motor_1B1": new Motor("268500995"),
-    "motor_1B2": new Motor("268500996"),
-    "motor_2F1": new Motor("268500997"),
-    "motor_2F2": new Motor("268500998"),
-    "motor_2B1": new Motor("268500999"),
-    "motor_2B2": new Motor("268501000"),
-    "motor_3F1": new Motor("268501001"),
-    "motor_3F2": new Motor("268501002"),
-    "motor_3B1": new Motor("268501003"),
-    "motor_3B2": new Motor("268501004")
+    "motor_1B1": new Motor("111111111"),
+    "motor_1B2": new Motor("111111111"),
+    "motor_2F1": new Motor("111111111"),
+    "motor_2F2": new Motor("111111111"),
+    "motor_2B1": new Motor("111111111"),
+    "motor_2B2": new Motor("111111111"),
+    "motor_3F1": new Motor("111111111"),
+    "motor_3F2": new Motor("111111111"),
+    "motor_3B1": new Motor("111111111"),
+    "motor_3B2": new Motor("111111111")
 }
 
 var petal_1 = ["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2"]
@@ -230,7 +230,7 @@ var allmotions_on = false;
 
 var idle_1_running = false;
 
-var delayIdle = 8000 // 5000 is the total time of a idle1 loop + some "gordurinha"
+var delayIdle = 6000 // 5000 is the total time of a idle1 loop + some "gordurinha"
 
 function run_idle_1(){
 
@@ -242,55 +242,23 @@ function run_idle_1(){
 
     setTimeout(function(){
 
-        motors[petal_1[0]].sendCommand(7);
-        setTimeout(function(){
-            motors[petal_1[1]].sendCommand(0);
-        }, 50);
-        setTimeout(function(){
-            motors[petal_1[2]].sendCommand(33);
-        }, 100);
-        setTimeout(function(){
-            motors[petal_1[3]].sendCommand(0);
-        }, 150);
+        motors[petal_1[0]].sendCommand(15);
+        motors[petal_1[1]].sendCommand(15);
 
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 15 });
+        socket.emit("exec_front", { "motor": petal_1[1], "command": 15 });
 
-        socket.emit("exec_front", { "motor": petal_1[0], "command": 7 });
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
-        }, 50);
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_1[2], "command": 33 });
-        }, 100);
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_1[3], "command": 0 });
-        }, 150);
 
         setTimeout(function(){
 
             motors[petal_1[0]].sendCommand(0);
-            setTimeout(function(){
-                motors[petal_1[1]].sendCommand(10);
-            }, 50);
-            setTimeout(function(){
-                motors[petal_1[2]].sendCommand(0);
-            }, 100);
-            setTimeout(function(){
-                motors[petal_1[3]].sendCommand(66);
-            }, 150);
+            motors[petal_1[1]].sendCommand(0);
 
             socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[1], "command": 10 });
-            }, 50);
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[2], "command": 0 });
-            }, 100);
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_1[3], "command": 66 });
-            }, 150);
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
 
-        }, delayIdle / 2);
-    }, delayIdle / 2);
+        }, delayIdle);
+    }, delayIdle);
 }
 
 function run_idle_2(){
@@ -303,55 +271,23 @@ function run_idle_2(){
 
     setTimeout(function(){
 
-        motors[petal_2[0]].sendCommand(8);
-        setTimeout(function(){
-            motors[petal_2[1]].sendCommand(0);
-        }, 50);
-        setTimeout(function(){
-            motors[petal_2[2]].sendCommand(25);
-        }, 100);
-        setTimeout(function(){
-            motors[petal_2[3]].sendCommand(0);
-        }, 150);
+        motors[petal_1[0]].sendCommand(22);
+        motors[petal_1[1]].sendCommand(30);
 
+        socket.emit("exec_front", { "motor": petal_1[0], "command": 22 });
+        socket.emit("exec_front", { "motor": petal_1[1], "command": 30 });
 
-        socket.emit("exec_front", { "motor": petal_2[0], "command": 8 });
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_2[1], "command": 0 });
-        }, 50);
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_2[2], "command": 25 });
-        }, 100);
-        setTimeout(function(){
-            socket.emit("exec_front", { "motor": petal_2[3], "command": 0 });
-        }, 150);
 
         setTimeout(function(){
 
-            motors[petal_2[0]].sendCommand(0);
-            setTimeout(function(){
-                motors[petal_2[1]].sendCommand(13);
-            }, 50);
-            setTimeout(function(){
-                motors[petal_2[2]].sendCommand(0);
-            }, 100);
-            setTimeout(function(){
-                motors[petal_2[3]].sendCommand(33);
-            }, 150);
+            motors[petal_1[0]].sendCommand(0);
+            motors[petal_1[1]].sendCommand(0);
 
-            socket.emit("exec_front", { "motor": petal_2[0], "command": 0 });
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_2[1], "command": 13 });
-            }, 50);
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_2[2], "command": 0 });
-            }, 100);
-            setTimeout(function(){
-                socket.emit("exec_front", { "motor": petal_2[3], "command": 33 });
-            }, 150);
+            socket.emit("exec_front", { "motor": petal_1[0], "command": 0 });
+            socket.emit("exec_front", { "motor": petal_1[1], "command": 0 });
 
-        }, delayIdle / 2);
-    }, delayIdle / 2);
+        }, delayIdle);
+    }, delayIdle);
 }
 
 function run_idle_3(){
@@ -411,8 +347,8 @@ function run_idle_3(){
                 socket.emit("exec_front", { "motor": petal_3[3], "command": 33 });
             }, 150);
 
-        }, delayIdle / 2);
-    }, delayIdle / 2);
+        }, delayIdle);
+    }, delayIdle);
 }
 
 
@@ -428,7 +364,7 @@ function idle(command) {
 
     if (command == 'idle_1_on' && allmotions_on) {
         // start a loop with idle_1
-        intervalIdle1 = setInterval(run_idle_1, delayIdle);
+        intervalIdle1 = setInterval(run_idle_1, delayIdle * 2 + 500);
     }
     if (command == 'idle_1_off') {
         // stop the loop with idle1
@@ -450,7 +386,7 @@ function idle(command) {
 
     if (command == 'idle_2_on' && allmotions_on) {
         // start a loop with idle_2
-        intervalIdle2 = setInterval(run_idle_2, delayIdle);
+        intervalIdle2 = setInterval(run_idle_2, delayIdle * 2);
     }
     if (command == 'idle_2_off') {
         // stop the loop with idle1
@@ -472,7 +408,7 @@ function idle(command) {
 
     if (command == 'idle_3_on' && allmotions_on) {
         // start a loop with idle_2
-        intervalIdle3 = setInterval(run_idle_3, delayIdle);
+        intervalIdle3 = setInterval(run_idle_3, delayIdle * 2);
     }
     if (command == 'idle_3_off') {
         // stop the loop with idle1
@@ -504,19 +440,10 @@ function activatedSensorA() {
     clearInterval(intervalIdle1);
     intervalIdle1 = false;
 
-    if (sensor_1a && sensor_1b && sensor_1c) {
-        clearTimeout(activateTimeoutSensorA);
-        activateTimeoutSensorA = setTimeout(function() {
-            socket.emit('petal', 'petal_1_down');
-        }, 1000);
-    } else if (sensor_1a || sensor_1b || sensor_1c) {
-        clearTimeout(activateTimeoutSensorA);
-        activateTimeoutSensorA = setTimeout(function() {
-            socket.emit('petal', 'petal_1_up');
-        }, delayIdle);
-
-    } else if (!sensor_1a && !sensor_1b && !sensor_1c) {
-        intervalIdle1 = setInterval(run_idle_1, delayIdle);
+    if (sensor_1a) {
+        socket.emit('petal', 'petal_1_down');
+    } else {
+        socket.emit('petal', 'petal_1_up');
     }
 }
 

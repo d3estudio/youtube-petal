@@ -11,314 +11,322 @@ select {
 .top, .left, .right, .front {
     border: 1px solid #000000;
 }
+@media screen and (min-width: 320px) {
 
-.content_menu {
-    overflow: scroll;
-    height: 100vh;
-    position: absolute;
-    z-index: 9999;
-    margin-left: 15px;
-    top: 0;
-    left: 0;
-    width: 260px;
 }
 
-#left-menu {
-    position: absolute;
-    z-index: 9999;
-    margin-left: 15px;
-}
-#right-menu {
-    position: absolute;
-    z-index: 9999;
-    right: 0;
-    margin-right: 15px;
-}
-.container {
-    width: 850px;
-    height: 480px;
-    position: relative;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.petal {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 33.3%;
-    /*background: #000;
-    opacity: 0.2;*/
-}
-
-.p_one .m_one::after {
-    content: "F1";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_one::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_two::after {
-    content: "F2";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_two::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_three::after {
-    content: "B1";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_three::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_four::after {
-    content: "B2";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_one .m_four::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_five::after {
-    content: "F1";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_five::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_six::after {
-    content: "F2";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_six::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_seven::after {
-    content: "B1";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_seven::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_eight::after {
-    content: "B2";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_two .m_eight::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_nine::after {
-    content: "F1";
-    position: absolute;
-    top: -30px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_nine::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_ten::after {
-    content: "F2";
-    position: absolute;
-    top: -30px;
-    left: 35%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_ten::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_eleven::after {
-    content: "B1";
-    position: absolute;
-    top: -30px;
-    left: 35%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_eleven::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_twelve::after {
-    content: "B2";
-    position: absolute;
-    top: -30px;
-    left: 35%;
-    font-size: 0.8rem;
-    color: #999
-}
-.p_three .m_twelve::before {
-    content: attr(data-rotation);
-    position: absolute;
-    top: 10px;
-    left: 45%;
-    font-size: 0.8rem;
-    color: #999
-}
+/* aplica somente a partir de 480px em landscape */
+@media screen and (min-width: 480px) and (orientation: landscape) {
 
 
-.motors {
-    position: absolute;
-    top: 240px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
 
-.sensors {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    width: 70%;
-    top: 30%;
-}
-.As::after {
-    content: "1";
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    font-size: 0.8rem;
-    color: #FFF
-}
-.Bs::after {
-    content: "2";
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    font-size: 0.8rem;
-    color: #FFF
-}
-.Cs::after {
-    content: "3";
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    font-size: 0.8rem;
-    color: #FFF
-}
+    .content_menu {
+        overflow: scroll;
+        height: 100vh;
+        position: absolute;
+        z-index: 9999;
+        margin-left: 15px;
+        top: 0;
+        left: 0;
+        width: 260px;
+    }
 
-.sensor {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    background-color: #828282;
-    border-radius: 10px;
-}
-.sensor.active {
-    background-color: #07ff07;
-}
+    #left-menu {
+        position: absolute;
+        z-index: 9999;
+        margin-left: 15px;
+    }
+    #right-menu {
+        position: absolute;
+        z-index: 9999;
+        right: 0;
+        margin-right: 15px;
+    }
+    .container {
+        width: 850px;
+        height: 480px;
+        position: relative;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 
-.p_two {
-    margin: 0 10%;
-}
+    .petal {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 33.3%;
+        /*background: #000;
+        opacity: 0.2;*/
+    }
 
-.motor {
-    position: relative;
-    align-self: flex-start;
-    border: 1px solid #fff;
-    width: 50px;
-    background: #fff;
-    z-index: 1;
-}
+    .p_one .m_one::after {
+        content: "F1";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_one::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_two::after {
+        content: "F2";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_two::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_three::after {
+        content: "B1";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_three::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_four::after {
+        content: "B2";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_one .m_four::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_five::after {
+        content: "F1";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_five::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_six::after {
+        content: "F2";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_six::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_seven::after {
+        content: "B1";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_seven::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_eight::after {
+        content: "B2";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_two .m_eight::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_nine::after {
+        content: "F1";
+        position: absolute;
+        top: -30px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_nine::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_ten::after {
+        content: "F2";
+        position: absolute;
+        top: -30px;
+        left: 35%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_ten::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_eleven::after {
+        content: "B1";
+        position: absolute;
+        top: -30px;
+        left: 35%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_eleven::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_twelve::after {
+        content: "B2";
+        position: absolute;
+        top: -30px;
+        left: 35%;
+        font-size: 0.8rem;
+        color: #999
+    }
+    .p_three .m_twelve::before {
+        content: attr(data-rotation);
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        font-size: 0.8rem;
+        color: #999
+    }
 
-.line {
-    position: absolute;
-    width: 100%;
-    left: 0px;
-    top: 50%;
-    border-top: 1px dashed #fff;
-    opacity: 0.5;
-    height: 1px;
-    z-index: 0;
-}
 
+    .motors {
+        position: absolute;
+        top: 240px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sensors {
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        width: 70%;
+        top: 30%;
+    }
+    .As::after {
+        content: "1";
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        font-size: 0.8rem;
+        color: #FFF
+    }
+    .Bs::after {
+        content: "2";
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        font-size: 0.8rem;
+        color: #FFF
+    }
+    .Cs::after {
+        content: "3";
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        font-size: 0.8rem;
+        color: #FFF
+    }
+
+    .sensor {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        background-color: #828282;
+        border-radius: 10px;
+    }
+    .sensor.active {
+        background-color: #07ff07;
+    }
+
+    .p_two {
+        margin: 0 10%;
+    }
+
+    .motor {
+        position: relative;
+        align-self: flex-start;
+        border: 1px solid #fff;
+        width: 50px;
+        background: #fff;
+        z-index: 1;
+    }
+
+    .line {
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 50%;
+        border-top: 1px dashed #fff;
+        opacity: 0.5;
+        height: 1px;
+        z-index: 0;
+    }
+}

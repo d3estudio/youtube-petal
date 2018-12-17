@@ -559,42 +559,42 @@ var MotorC4 = function() {
 var AllMotors = function() {
 
     this.GO_DOWN_180 = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": -101 });
         });
     };
     this.GO_UP_180 = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 101 });
         });
     };
     this.GO_UP_360 = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 105 });
         });
     };
     this.GO_DOWN_360 = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": -105 });
         });
     };
     this.GO_UP_4X = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 106 });
         });
     };
     this.GO_DOWN_4X = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": -106 });
         });
     };
     this.GO_UP_5X = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": 107 });
         });
     };
     this.GO_DOWN_5X = function() {
-        $.each(["motor_1F1", "motor_1F2", "motor_1B1", "motor_1B2", "motor_2F1", "motor_2F2", "motor_2B1", "motor_2B2", "motor_3F1", "motor_3F2", "motor_3B1", "motor_3B2"], function(index, value) {
+        $.each(["motor_1F1", "motor_1F2"], function(index, value) {
         socket.emit('animate', { "motor": value, "command": -107 });
         });
     };
